@@ -1,0 +1,70 @@
+<section class="container py-4 job-table-section">
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Job Title</th>
+              <th>Category</th>
+              <th>Package</th>
+              <th>Experience</th>
+              <th>Location</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let job of jobList; let sr = index">
+              <!-- Job Row -->
+              <tr>
+                <td>{{ sr + 1 }}</td>
+                <td>{{ job.jobName }}</td>
+                <td>{{ job.categoryName }}</td>
+                <td>{{ job.package }}</td>
+                <td>{{ job.experience }}</td>
+                <td>{{ job.location }}</td>
+                <td>
+                  <button class="btn btn-outline-primary btn-sm" (click)="openJobs(job)">
+                    {{ job.isExpanded ? 'Close' : 'Open' }}
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Expanded Panel Row -->
+              <tr *ngIf="job.isExpanded">
+                <td colspan="7">
+                  <div class="p-3 bg-light rounded shadow-sm">
+                    <h6 class="mb-3 text-primary">Applicant List</h6>
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-striped">
+                        <thead class="table-secondary">
+                          <tr>
+                            <th>Serial No</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Mobile Number</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let app of applications; let idx = index">
+                            <td>{{ idx + 1 }}</td>
+                            <td>{{ app.applcationStatus }}</td>
+                            <td>{{ app.emailId }}</td>
+                            <td>{{ app.fullName }}</td>
+                            <td>{{ app.mobileNo }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

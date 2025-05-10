@@ -1,0 +1,81 @@
+<section class="container-fluid body-background">
+    <div class="container py-5">
+      <div class="row gy-4">
+  
+        <!-- Job Details -->
+        <div class="col-12 col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+  
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h4 class="mb-1">{{ jobObj?.jobName }}</h4>
+                  <p class="text-muted mb-0">{{ jobObj?.companyName }}</p>
+                </div>
+                <div class="col-4 text-end">
+                  <img class="company-logo img-fluid" [src]="jobObj?.logoURL" alt="Company Logo" />
+                </div>
+              </div>
+  
+              <div class="row text-muted text-center my-4">
+                <div class="col-4">
+                  <i class="fa fa-suitcase"></i><br> {{ jobObj?.experience }}
+                </div>
+                <div class="col-4">
+                  <i class="fa fa-money-bill"></i><br> {{ jobObj?.package }}
+                </div>
+                <div class="col-4">
+                  <i class="fa fa-map-marker-alt"></i><br> {{ jobObj?.location }}
+                </div>
+              </div>
+  
+              <hr>
+  
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">কিছুক্ষণ আগে</small>
+                <div>
+                  <ng-container *ngIf="isLoggedIn; else loginButton">
+                    <button (click)="apply()" class="btn btn-outline-primary round-button mx-1">
+                      আবেদন করুন
+                    </button>
+                  </ng-container>
+                  <ng-template #loginButton>
+                    <a routerLink="/login" class="btn btn-primary round-button">
+                      লগইন করে আবেদন করুন
+                    </a>
+                  </ng-template>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+          <!-- Job Description -->
+          <div class="card shadow-sm mt-4">
+            <div class="card-body">
+              <h5 class="mb-3">চাকরির বিস্তারিত</h5>
+              <p>{{ jobObj?.jobDescription }}</p>
+            </div>
+          </div>
+  
+        </div>
+  
+        <!-- Side Panel -->
+        <div class="col-12 col-lg-4">
+          <div class="card shadow-sm mb-4">
+            <div class="card-body text-center">
+              <h6>রিভিউসমূহ</h6>
+            </div>
+          </div>
+  
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <h6>বেতন সম্পর্কিত তথ্য</h6>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  

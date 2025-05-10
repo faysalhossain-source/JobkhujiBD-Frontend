@@ -1,0 +1,31 @@
+.job-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  padding-left: 20px;  /* Added left padding */
+  padding-right: 20px; /* Added right padding */
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.company-name {
+  font-size: 14px;
+  color: gray;
+}
+
+.compo-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.filter {
+  padding: 10px;
+}
+
+.job {
+  padding: 10px;
+}

@@ -1,0 +1,45 @@
+.job-table-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.job-table-section table th,
+.job-table-section table td {
+  vertical-align: middle;
+}
+
+.job-table-section .table thead th {
+  font-weight: 600;
+  text-align: center;
+}
+
+.job-table-section .table tbody td {
+  text-align: center;
+}
+
+.job-table-section .btn-outline-primary {
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+}
+
+.job-table-section .shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 576px) {
+  .job-table-section {
+    padding: 1rem;
+  }
+
+  .job-table-section table {
+    font-size: 0.9rem;
+  }
+
+  .job-table-section .btn-outline-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}

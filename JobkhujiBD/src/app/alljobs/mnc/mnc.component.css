@@ -1,0 +1,23 @@
+.card {
+  border-radius: 16px;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  object-fit: contain;
+  max-height: 160px;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+}

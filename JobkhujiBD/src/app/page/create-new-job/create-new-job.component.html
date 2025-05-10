@@ -1,0 +1,61 @@
+<section class="create-job-section container py-4">
+  <h3 class="mb-4">Create a New Job Post</h3>
+
+  <div class="row gy-3">
+
+    <!-- Job Title -->
+    <div class="col-12 col-md-6">
+      <label class="form-label">Job Title</label>
+      <input type="text" class="form-control" [(ngModel)]="jobObj.JobName" name="JobName"
+        placeholder="e.g. Software Engineer" />
+    </div>
+
+    <!-- Category -->
+    <div class="col-12 col-md-6">
+      <label class="form-label">Select Category</label>
+      <select class="form-select" [(ngModel)]="jobObj.CategoryId" name="CategoryId">
+        <option [ngValue]="null" disabled selected>Select a Category</option>
+        <option *ngFor="let cat of categoryList" [ngValue]="cat.jobCategoryId">
+          {{ cat.categoryName }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Experience -->
+    <div class="col-12 col-md-6">
+      <label class="form-label">Experience</label>
+      <select class="form-select" [(ngModel)]="jobObj.Experience" name="Experience">
+        <option value="" disabled selected>Select Experience</option>
+        <option value="Fresher">Fresher</option>
+        <option value="Experienced">Experienced</option>
+      </select>
+    </div>
+
+    <!-- Package -->
+    <div class="col-12 col-md-6">
+      <label class="form-label">Pay Scale (Package)</label>
+      <input type="text" class="form-control" [(ngModel)]="jobObj.Package" name="Package" placeholder="e.g. 30k-50k" />
+    </div>
+
+    <!-- Location -->
+    <div class="col-12 col-md-6">
+      <label class="form-label">Location</label>
+      <input type="text" class="form-control" [(ngModel)]="jobObj.Location" name="Location" placeholder="e.g. Dhaka" />
+    </div>
+
+    <!-- Description -->
+    <div class="col-12">
+      <label class="form-label">Job Description</label>
+      <textarea class="form-control" [(ngModel)]="jobObj.JobDescription" name="JobDescription" rows="4"
+        placeholder="Write a description of the job..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-12 text-center">
+      <button (click)="CreateJob()" class="btn btn-success btn-lg px-5" type="button">
+        Post Job
+      </button>
+    </div>
+
+  </div>
+</section>

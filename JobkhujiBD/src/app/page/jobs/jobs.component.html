@@ -1,0 +1,246 @@
+<div class="container-fluid py-4">
+  <div class="row">
+    <!-- Left Filter Column -->
+    <div class="col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="text-center mb-3">Filter</h6>
+          <form>
+            <div class="mb-3">
+              <label for="jobType" class="form-label">Job Type</label>
+              <select id="jobType" class="form-select">
+                <option value="">All</option>
+                <option value="full-time">Full Time</option>
+                <option value="part-time">Part Time</option>
+                <option value="internship">Internship</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" id="location" class="form-control" placeholder="Enter location">
+            </div>
+
+            <!-- Job Categories Accordion -->
+            <div class="mb-3">
+              <div class="accordion" id="categoryAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingCategories">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseCategories" aria-expanded="false" aria-controls="collapseCategories">
+                      Toggle Job Categories
+                    </button>
+                  </h2>
+                  <div id="collapseCategories" class="accordion-collapse collapse"
+                    aria-labelledby="headingCategories" data-bs-parent="#categoryAccordion">
+                    <div class="accordion-body p-0">
+                      <ul class="list-group list-group-flush">
+                        <!-- Categories go here -->
+                        <li class="list-group-item"><input type="checkbox" id="category1"><label for="category1"> Software Development</label></li>
+                       <li class="list-group-item"><input type="checkbox" id="category2"><label
+                            for="category2"> Data Science</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category3"><label
+                            for="category3"> Design</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category4"><label
+                            for="category4"> Marketing</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category5"><label
+                            for="category5"> Sales</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category6"><label
+                            for="category6"> Finance</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category7"><label
+                            for="category7"> Human Resources</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category8"><label
+                            for="category8"> Customer Support</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category9"><label
+                            for="category9"> Project Management</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category10"><label
+                            for="category10"> Legal</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category11"><label
+                            for="category11"> Education</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category12"><label
+                            for="category12"> Healthcare</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category13"><label
+                            for="category13"> Construction</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category14"><label
+                            for="category14"> Manufacturing</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category15"><label
+                            for="category15"> Transportation</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category16"><label
+                            for="category16"> Hospitality</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category17"><label
+                            for="category17"> Real Estate</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category18"><label
+                            for="category18"> Telecommunications</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category19"><label
+                            for="category19"> Energy</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category20"><label
+                            for="category20"> Agriculture</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category21"><label
+                            for="category21"> Mining</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category22"><label
+                            for="category22"> Pharmaceuticals</label></li>
+                        <li class="list-group-item"><input type="checkbox" id="category23"><label
+                            for="category23"> Aerospace</label></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ✅ APPLY FILTER BUTTON AT THE END OF FORM -->
+            <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job Listings Column -->
+    <div class="col-lg-6 mb-4">
+      <div class="row" *ngFor="let job of jobList">
+        <div class="col-12">
+          <div class="card job-card">
+            <div class="card-body" (click)="openJob(job.jobId)">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h6 class="mb-1">{{ job.jobName }}</h6>
+                  <a class="company-name">{{ job.companyName }}</a>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col-4"><i class="fa fa-suitcase"></i> {{ job.experience }}</div>
+                <div class="col-4">{{ job.package }}</div>
+                <div class="col-4"><i class="fa fa-map-marker"></i> {{ job.location }}</div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col-12">
+                  <i class="fa fa-file-text-o"></i>
+                  <span class="text-muted">{{ job.jobName | slice: 0:50 }}...</span>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col-6"><small>Few Hours Ago</small></div>
+                <div class="col-6 text-end"><i class="fa fa-bookmark"></i></div>
+              </div>
+
+              <div class="row mt-3 px-2">
+                <div class="col-6 pe-1">
+                  <a href="/register" class="btn btn-sm btn-primary w-100">Register to Apply</a>
+                </div>
+                <div class="col-6 ps-1">
+                  <a href="/job-details" class="btn btn-sm btn-outline-primary w-100">More Details</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Top Companies) -->
+    <div class="col-lg-3 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <a href="/companies" class="btn btn-sm btn-outline-secondary w-100">Hot Companies Hiring</a> 
+      <h6 class="text-center my-3">Top Companies</h6>
+      <div class="row">
+        <div class="col-6 text-center">
+          <a href="/company-details/cube-holdings">
+            <img src="top job/Cube Holdings logo.png" alt="Cube Holdings Ltd." class="img-fluid">
+          </a>
+        </div>  
+        <div class="col-6 text-center">
+          <a href="/company-details/eskayef-pharmaceuticals">
+            <img src="top job/EPL logo.png" alt="Eskayef Pharmaceuticals Ltd" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/unwfp">
+            <img src="top job/UNWFP PIC.png" alt="United Nations World Food Programme" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/good-neighbors">
+            <img src="top job/Good Neighbors Bangladesh LOGO.png" alt="Good Neighbors Bangladesh" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/social-business-project">
+            <img src="top job/সোশ্যাল বিজনেস প্রোজেক্ট LOGO.png" alt="সোশ্যাল বিজনেস প্রোজেক্ট" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/square-fashions">
+            <img src="top job/Square Fashions Limited.jpg" alt="Square Fashions Limited" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/water-sanitation">
+            <img src="top job/Water & Sanitation for Urban Populations.png" alt="Water & Sanitation for Urban Populations" class="img-fluid">
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="/company-details/images-ltd">
+            <img src="top job/Images Ltd..png" alt="Images Ltd." class="img-fluid">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          <!-- You can add logos or content here -->
+     <footer class="bg-light text-dark pt-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <!-- Company Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Job Portal</h5>
+        <p>&copy; 2023 Job Portal. All rights reserved.</p>
+        <a href="/privacy-policy" class="d-block">Privacy Policy</a>
+        <a href="/terms-of-service" class="d-block">Terms of Service</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="/about-us" class="text-decoration-none text-dark">About Us</a></li>
+          <li><a href="/contact-us" class="text-decoration-none text-dark">Contact Us</a></li>
+          <li><a href="/help" class="text-decoration-none text-dark">Help</a></li>
+          <li><a href="/faq" class="text-decoration-none text-dark">FAQ</a></li>
+          <li><a href="/blog" class="text-decoration-none text-dark">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Other Links -->
+      <div class="col-md-4 mb-3">
+        <h6>More</h6>
+        <ul class="list-unstyled">
+          <li><a href="/careers" class="text-decoration-none text-dark">Careers</a></li>
+          <li><a href="/advertise" class="text-decoration-none text-dark">Advertise</a></li>
+          <li><a href="/sitemap" class="text-decoration-none text-dark">Sitemap</a></li>
+          <li><a href="/feedback" class="text-decoration-none text-dark">Feedback</a></li>
+          <li><a href="/report" class="text-decoration-none text-dark">Report</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row text-center">
+      <div class="col">
+        <a href="/terms" class="mx-2 text-decoration-none text-muted">Terms</a>
+        <a href="/cookies" class="mx-2 text-decoration-none text-muted">Cookies</a>
+        <a href="/accessibility" class="mx-2 text-decoration-none text-muted">Accessibility</a>
+        <a href="/community-guidelines" class="mx-2 text-decoration-none text-muted">Community Guidelines</a>
+        <a href="/user-agreement" class="mx-2 text-decoration-none text-muted">User Agreement</a>
+      </div>
+    </div>
+  </div>
+</footer>

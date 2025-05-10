@@ -1,0 +1,46 @@
+<div class="container my-5" *ngIf="company">
+  <div class="card text-center p-4 shadow">
+
+    <img [src]="company.imageUrl" alt="{{ company.name }}" class="img-fluid mb-3" style="max-height: 150px;">
+    <h4>{{ company.name }}</h4>
+
+    <ng-container *ngIf="!company.isExternal">
+      <p>{{ company.description }}</p>
+      <button class="btn btn-primary mt-3" [routerLink]="['/apply', company.id]">Apply Online</button>
+    </ng-container>
+
+    <ng-container *ngIf="company.isExternal">
+      <p>For full company details and job application, visit their official website.</p>
+      <a [href]="company.externalUrl" target="_blank" class="btn btn-success mt-3">Visit Official Site</a>
+    </ng-container>
+
+  </div>
+</div>
+<div class="container my-5">
+  <h6>Job Openings</h6>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let job of company.jobs">
+      <div class="card mb-4 shadow">
+        <div class="card-body">
+          <h5 class="card-title">{{ job.title }}</h5>
+          <p class="card-text">{{ job.description }}</p>
+          <button class="btn btn-primary" [routerLink]="['/job', job.id]">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5">
+  <h6>Company Reviews</h6>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let review of company.reviews">
+      <div class="card mb-4 shadow">
+        <div class="card-body">
+          <h5 class="card-title">{{ review.title }}</h5>
+          <p class="card-text">{{ review.content }}</p>
+          <p class="text-muted">Rating: {{ review.rating }} / 5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

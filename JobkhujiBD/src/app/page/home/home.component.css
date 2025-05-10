@@ -1,0 +1,79 @@
+/* Fix for Featured Companies Section Alignment */
+#main-slider-2 {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #f1f1f1;
+}
+#main-slider-2{
+  display: flex;
+  justify-content: center;
+}
+
+#main-slider-2 .slide {
+  min-width: 150px; /* Same width as Trending cards */
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+  padding: 15px; /* Consistent padding */
+}
+
+#main-slider-2 .slide:hover {
+  transform: translateY(-5px);
+}
+
+#main-slider-2 .slide h6 {
+  font-size: 1rem;
+  margin: 10px 0 5px 0; /* Adjusted margin for better spacing */
+  color: #2c3e50;
+}
+
+#main-slider-2 .slide p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+#main-slider-2 .company-logo {
+  max-height: 50px;
+  max-width: 100px;
+  object-fit: contain;
+  margin: 0 auto 10px auto; /* Centered logo with bottom margin */
+}
+
+/* Ensure both sections have identical styling */
+#main-slider, #main-slider-2 {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #f1f1f1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #main-slider-2 .slide {
+    min-width: 120px; /* Matches Trending cards on mobile */
+  }
+}
+.slide img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px auto;
+  transition: transform 0.3s ease; /* hover transition */
+}
+
+.slide img:hover {
+  transform: scale(1.05); /* halka boro hover e */
+}
+.blueda{
+  display: flex;
+  margin: 15px 0;
+  justify-content: center;
+}

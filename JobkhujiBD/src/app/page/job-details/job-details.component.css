@@ -1,0 +1,29 @@
+.body-background {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .company-logo {
+    max-width: 80px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .round-button {
+    border-radius: 50px;
+    padding: 6px 20px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 12px;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  h4, h5, h6 {
+    font-weight: 600;
+  }
+  

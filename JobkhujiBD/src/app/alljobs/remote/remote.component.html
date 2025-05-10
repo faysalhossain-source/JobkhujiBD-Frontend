@@ -1,0 +1,25 @@
+<div class="section-title text-center mb-4">
+  <h2>🔎 Virtual Work Opportunities</h2>
+  <p>🌐 Explore Exciting Remote Job Opportunities from Anywhere in the World</p>
+</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let job of jobs">
+      <div class="card job-card h-100 shadow-sm border-0">
+        <img
+          [src]="job.image || 'assets/default-job.png'"
+          class="card-img-top p-3"
+          [alt]="job.name"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ job.name }}</h5>
+          <p class="card-text text-muted">
+            {{ job.description || 'Apply now to work remotely in a dynamic environment.' }}
+          </p>
+          <a [routerLink]="['/jobs', job.id]" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

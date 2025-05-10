@@ -1,0 +1,105 @@
+/* Global styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+/* Sidebar Styles */
+.side-menu {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to bottom, #0d6efd, #0a58ca);
+  color: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo section */
+.sidebar .logo {
+  padding: 1.2rem;
+  text-align: center;
+  background-color: #fff; /* White background for logo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logo img {
+  max-width: 140px; /* was 100px */
+  width: 100%;
+  height: auto;
+}
+
+
+/* Menu list */
+.menu-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list ul li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  gap: 0.75rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.menu-list ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu i {
+  margin-right: 10px;
+}
+
+/* Main content area */
+.content-area {
+  margin-left: 240px;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.content-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .side-menu {
+    width: 200px;
+  }
+
+  .content-area {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .side-menu {
+    width: 100%;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .content-area {
+    margin-left: 0;
+  }
+
+  .menu-list ul li a {
+    padding: 0.75rem 1rem;
+  }
+}
