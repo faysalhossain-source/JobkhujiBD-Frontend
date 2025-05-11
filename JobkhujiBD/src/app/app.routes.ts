@@ -15,6 +15,8 @@ import { RegisterComponent } from './page/registration/registration.component';
 import { CompanyDetailsComponent } from './page/company/company-details/company-details.component';
 import { ApplyFormComponent } from './page/apply-form/apply-form.component';
 import { Mncjobs } from './alljobs/mnc/mnc.component';
+import { EngineeringJobs } from './alljobs/engineering/engineering.component';
+
 
 
 
@@ -53,6 +55,7 @@ export const routes: Routes = [
       { path: '', redirectTo: '/login', pathMatch: 'full' } ,// Default redirect
       { path: 'company-details/:id', component: CompanyDetailsComponent },
       { path: 'apply/:id', component: ApplyFormComponent },
+      {path: 'engineering', component: EngineeringJobs}
     ]
   },
   { path: '**', redirectTo: '' } // Fallback for unknown paths

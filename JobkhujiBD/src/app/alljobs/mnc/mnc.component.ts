@@ -7,6 +7,7 @@ interface Job {
   name: string;
   description?: string;
   image?: string;
+  externalLink?: string;
 }
 
 @Component({
@@ -27,14 +28,14 @@ export class Mncjobs implements OnInit {
       name: 'Unilever Bangladesh Ltd.',
       image: 'mnc/unilever.jpg',
       description: 'Shape a better future with sustainable innovation.',
-      // externalLink: 'https://www.unilever.com.bd/'
+       externalLink: 'https://www.unilever.com.bd/'
     },
     {
       id: 2,
       name: 'Nestlé Bangladesh',
       image: 'mnc/nestle.jpg',
       description: 'Join Nestlé to make an impact through nutrition, health, and wellness.',
-      // externalLink: 'https://www.nestle.com.bd/'
+      externalLink: 'https://www.nestle.com.bd/'
     },
     {
       id: 3,
@@ -45,30 +46,30 @@ export class Mncjobs implements OnInit {
     {
       id: 4,
       name: 'Coca-Cola Bangladesh',
-      image: 'mnc/coca-cola.jpg',
+      image: 'mnc/Coca-Cola.jpg',
       description: 'Join us to refresh the world and make a difference.',
-      // externalLink: 'https://www.cokecce.com/'
+      externalLink: 'https://www.cokecce.com/'
     },
     {
       id: 5,
       name: 'PepsiCo Bangladesh',
       image: 'mnc/pepsico.jpg',
       description: 'Join us to create more smiles with every sip and every bite.',
-      // externalLink: 'https://www.pepsico.com/'
+      externalLink: 'https://www.pepsico.com/'
     },
     {
       id: 6,
       name: 'Dell Technologies Bangladesh',
-      image: 'assets/mnc/dell.png',
+      image: 'mnc/dell.jpeg',
       description: 'Join us to build a better future with technology.',
-      // externalLink: 'https://www.dell.com/en-us'
+      externalLink: 'https://www.dell.com/en-us'
     },
     {
       id: 7,
       name: 'IBM Bangladesh',
-      image: 'assets/mnc/ibm.png',
+      image: 'mnc/ibm.jpeg',
       description: 'Join us to create innovative solutions for the world.',
-      // externalLink: 'https://www.ibm.com/bd-en'
+      externalLink: 'https://www.ibm.com/bd-en'
     }
     ];
   }

@@ -1,23 +1,23 @@
+
+.body-content {
+  padding-top: 80px; /* Increased from previous 30px */
+}
+
+.navbar {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin: 20px auto;
+  width: 95%;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced card hover effect */
 .card {
-  border-radius: 16px;
-  background-color: #ffffff;
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-img {
-  object-fit: contain;
-  max-height: 160px;
-}
-
-h4 {
-  font-weight: bold;
-}
-
-.btn {
-  padding: 10px 20px;
-  font-size: 16px;
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }

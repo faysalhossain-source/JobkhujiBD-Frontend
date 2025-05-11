@@ -1,0 +1,72 @@
+/* Body content */
+.body-content {
+  background-color: #f7f9fc;
+  padding: 60px 0;
+}
+
+/* Section title */
+.section-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #007bff;
+}
+
+.section-title h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.section-title p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+/* Card Section */
+.card {
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-body {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+

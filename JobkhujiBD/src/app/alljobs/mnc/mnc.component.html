@@ -1,25 +1,43 @@
-<div class="section-title text-center mb-4">
-  <h2>🌍 Multinational Job Opportunities</h2>
-  <p>🚀 Discover career opportunities with global companies operating in Bangladesh</p>
-</div>
+<!-- Added padding-top to body in CSS to push content down -->
 
-<section class="container">
-  <div class="row">
-    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let job of jobs">
-      <div class="card job-card h-100 shadow-sm border-0">
-        <img
-          [src]="job.image || 'assets/default-job.png'"
-          class="card-img-top p-3"
-          [alt]="job.name"
-        />
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ job.name }}</h5>
-          <p class="card-text text-muted">
-            {{ job.description || 'Apply now to work MNC in a dynamic environment.' }}
-          </p>
-          <a [routerLink]="['/jobs', job.id]" class="btn btn-primary btn-sm">View Details</a>
+
+<div class="body-content">
+  <!-- Section Title with improved spacing -->
+  <div class="section-title text-center mb-5 pt-4">
+    <h1 class="fw-bold text-primary display-4 mb-3">💼Explore Top MNC Jobs </h1>
+    <h5 class="fw-bold text-primary display-5 mb-3">🌍 Multinational Job Opportunities</h5>
+    <p class="text-muted lead">🚀 Discover career opportunities with global companies operating in Bangladesh</p>
+  </div>
+
+  <!-- Card Section with enhanced grid spacing -->
+  <section class="container pb-5">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6" *ngFor="let job of jobs">
+        <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
+          <img [src]="job.image || 'assets/default-job.png'"
+               class="card-img-top p-4 rounded-5"
+               [alt]="job.name"
+               style="height: 220px; object-fit: contain; background: #f8f9fa;">
+          <div class="card-body d-flex flex-column text-center px-4">
+            <h5 class="card-title fw-semibold text-dark mb-3 fs-5">{{ job.name }}</h5>
+            <p class="card-text text-secondary small flex-grow-1 mb-4">
+              {{ job.description || 'Apply now to work in a dynamic multinational environment.' }}
+            </p>
+            <a [routerLink]="['/jobs', job.id]" 
+               class="btn btn-outline-primary btn-hover-effect px-4 py-2">
+              View Details
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- CTA Button with animation -->
+  <div class="text-center mt-5 pb-5">
+    <a routerLink="/alljobs" 
+       class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-hover">
+      Explore All Opportunities
+    </a>
   </div>
-</section>
+</div>

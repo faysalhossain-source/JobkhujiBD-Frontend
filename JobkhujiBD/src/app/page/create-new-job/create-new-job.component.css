@@ -1,64 +1,16 @@
+.toast-container {
+  z-index: 1055;
+}
+
+.toast {
+  min-width: 250px;
+  border-radius: 0.5rem;
+}
+
 .create-job-section {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
+  background-color: #f7f9fc;
 }
 
-.create-job-section h3 {
-  color: #1a202c;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.form-label {
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.3rem;
-}
-
-.form-control,
-.form-select {
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  border: 1px solid #cbd5e0;
-  font-size: 1rem;
-  transition: border 0.2s ease;
-}
-
-.form-control:focus,
-.form-select:focus {
-  border-color: #3182ce;
-  box-shadow: 0 0 0 0.15rem rgba(49, 130, 206, 0.25);
-}
-
-textarea.form-control {
-  resize: vertical;
-}
-
-.btn-success {
-  border-radius: 30px;
-  padding: 0.6rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: #38a169;
-  border-color: #38a169;
-  transition: background-color 0.2s ease;
-}
-
-.btn-success:hover {
-  background-color: #2f855a;
-  border-color: #2f855a;
-}
-
-@media (max-width: 576px) {
-  .create-job-section {
-    padding: 1.2rem !important;
-  }
-
-  .btn-success {
-    width: 100%;
-  }
+.card {
+  border-radius: 1rem;
 }

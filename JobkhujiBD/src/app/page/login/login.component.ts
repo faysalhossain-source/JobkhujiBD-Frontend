@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -14,9 +13,30 @@ export class LoginComponent {
     UserName: '',
     Password: ''
   };
+  constructor(private router: Router) {}
+  // Function to handle login
+  // This function is called when the login button is clicked
 
-  onLogin() {
-    console.log('Login clicked:', this.loginObj);
-    // TODO: Call your backend API here
+ onLogin() {
+  if (!this.loginObj.UserName || !this.loginObj.Password) {
+    alert('Please enter both email and password.');
+    return;
   }
+
+  // Dummy login validation
+  const dummyUser = {
+    UserName: this.loginObj.UserName,
+    role: this.loginObj.UserName.includes('employer') ? 'EMPLOYER' : 'JOBSEEKER',
+    employerId: 101
+  };
+
+  localStorage.setItem('jobLoginUser', JSON.stringify(dummyUser));
+
+  if (dummyUser.role === 'EMPLOYER') {
+    this.router.navigate(['/create-new-job']);
+  } else {
+    this.router.navigate(['/jobs']);
+  }
+}
+
 }

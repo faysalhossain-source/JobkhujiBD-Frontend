@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { JobService } from '../../service/job.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { JobService } from '../../service/job.service';
   styleUrls: ['./create-new-job.component.css'],
 })
 export class CreateNewJobComponent implements OnInit {
-  
+
   jobObj: any = {
     JobId: 0,
     JobName: '',
@@ -24,18 +25,22 @@ export class CreateNewJobComponent implements OnInit {
     JobDescription: '',
     IsActive: true,
   };
-  
-  categoryList: any[] = [];
 
-  constructor(private jobSrv: JobService) {
-    const userData = localStorage.getItem('jobLoginUser');
-    if (userData) {
-      const data = JSON.parse(userData);
-      this.jobObj.EmployerId = data.employerId;
-    }
-  }
+  categoryList: any[] = [];
+  showToast: boolean = false;
+
+  constructor(private jobSrv: JobService, private router: Router) {}
 
   ngOnInit(): void {
+    const userData = localStorage.getItem('jobLoginUser');
+    if (!userData) {
+      alert('⚠️ You need to login first to post a job!');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    const data = JSON.parse(userData);
+    this.jobObj.EmployerId = data.employerId;
     this.loadCategories();
   }
 
@@ -48,11 +53,31 @@ export class CreateNewJobComponent implements OnInit {
   CreateJob() {
     this.jobSrv.createNewJob(this.jobObj).subscribe((res: any) => {
       if (res.result) {
-        alert('চাকরির পোস্ট সফলভাবে তৈরি হয়েছে!');
-        // If possible, reset the form here or navigate to another route.
+        this.showToast = true;
+        this.resetForm();
+        setTimeout(() => this.showToast = false, 4000);
       } else {
-        alert('ত্রুটি: ' + res.message);
+        alert('❌ Error: ' + res.message);
       }
     });
+  }
+
+  closeToast() {
+    this.showToast = false;
+  }
+
+  resetForm() {
+    this.jobObj = {
+      JobId: 0,
+      JobName: '',
+      CreatedDate: new Date(),
+      EmployerId: this.jobObj.EmployerId,
+      CategoryId: null,
+      Experience: '',
+      Package: '',
+      Location: '',
+      JobDescription: '',
+      IsActive: true,
+    };
   }
 }
