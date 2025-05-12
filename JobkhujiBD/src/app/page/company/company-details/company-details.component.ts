@@ -25,13 +25,14 @@ throw new Error('Method not implemented.');
     {
       id: 'cube-holdings',
       name: 'Cube Holdings Ltd.',
-      imageUrl: 'top-job/Cube Holdings Ltd pic.jpg',
+      imageUrl: 'top job/Cube Holdings Ltd pic.jpg',
       description: 'Cube Holdings is a top tech company in Bangladesh...',
+      website: 'google.com'
     },
     {
       id: 'eskayef',
       name: 'Eskayef Pharmaceuticals Ltd',
-      imageUrl: 'EPL PIC.png',
+      imageUrl: 'top job/EPL PIC.png',
       description: 'Eskayef is a leading pharma company in Bangladesh...',
     },
     {

@@ -16,6 +16,7 @@ import { CompanyDetailsComponent } from './page/company/company-details/company-
 import { ApplyFormComponent } from './page/apply-form/apply-form.component';
 import { Mncjobs } from './alljobs/mnc/mnc.component';
 import { EngineeringJobs } from './alljobs/engineering/engineering.component';
+import { AdminJobsComponent } from './admin/admin-jobs/admin-jobs.component';
 
 
 
@@ -34,9 +35,14 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DeshboardComponent
+      },
+      {
+        path: 'admin-jobs',
+        component: AdminJobsComponent
       }
     ]
   },
+
   {
     path: '',
     component: HomeMainComponentComponent,
