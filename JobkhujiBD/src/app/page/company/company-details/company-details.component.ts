@@ -7,8 +7,9 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   templateUrl: './company-details.component.html',
   styleUrls: ['./company-details.component.css'],
   standalone: true,
-  imports: [RouterLink, RouterLink,NgIf, NgIf,CommonModule], // Importing NgIf and RouterLink for routing and conditional rendering
-  // Note: The 'imports' array is used for standalone components in Angular
+  imports: [RouterLink, RouterLink,NgIf, NgIf,CommonModule]
+   // Importing NgIf and RouterLink for routing and conditional rendering
+  
 })
 export class CompanyDetailsComponent implements OnInit {
 scrollToTop() {
