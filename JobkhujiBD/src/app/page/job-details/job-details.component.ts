@@ -14,6 +14,6 @@ export class JobDetailsComponent {
   apply() {
     // এখানে তুমি ইচ্ছা মতো apply করার logic লিখবে
     console.log('User applied for job:', this.jobObj?.jobName);
-    alert('আপনি সফলভাবে আবেদন করেছেন!');
+    alert('You have successfully applied!');
   }
 }

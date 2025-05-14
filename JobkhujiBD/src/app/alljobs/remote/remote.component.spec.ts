@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RemoteJobsComponent } from './remote.component';
 
-import { RemoteComponent } from './remote.component';
+
 
 describe('RemoteComponent', () => {
-  let component: RemoteComponent;
-  let fixture: ComponentFixture<RemoteComponent>;
+  let component: RemoteJobsComponent ;
+  let fixture: ComponentFixture<RemoteJobsComponent >;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RemoteComponent]
+      imports: [RemoteJobsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RemoteComponent);
+    fixture = TestBed.createComponent(RemoteJobsComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

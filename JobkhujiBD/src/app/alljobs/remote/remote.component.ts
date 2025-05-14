@@ -1,8 +1,10 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
-interface Job {
+
+
+interface LocalJob {
   id: number;
   name: string;
   description?: string;
@@ -14,11 +16,13 @@ interface Job {
   templateUrl: './remote.component.html',
   styleUrls: ['./remote.component.css'],
   standalone: true,
-  imports: [RouterModule, NgFor, RouterLink]
+  imports: [RouterModule, NgFor, RouterLink,]
 })
 export class RemoteJobsComponent implements OnInit {
 
-  jobs: Job[] = [];
+  jobs: LocalJob[] = [];
+
+  constructor(private router:Router) {}
 
   ngOnInit(): void {
     this.jobs = [
@@ -101,5 +105,8 @@ export class RemoteJobsComponent implements OnInit {
         image: 'remote/video-editor.jpg'
       }
     ];
+  }
+  viewJobDetails(job: LocalJob): void {
+    this.router.navigate(['/remotejob-details', job.id]);
   }
 }

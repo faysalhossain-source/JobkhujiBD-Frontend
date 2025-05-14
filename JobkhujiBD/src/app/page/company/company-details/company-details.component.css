@@ -1,0 +1,144 @@
+/* Custom A4 Layout Styles */
+.container {
+  max-width: 210mm; /* A4 width */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.img-fluid {
+  border-radius: 8px;
+  object-fit: contain;
+  padding: 15px;
+}
+
+h4 {
+  color: #2d4059;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+h6 {
+  color: #2d4059;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #3b71ca;
+  border-color: #3b71ca;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.btn-success {
+  background-color: #14a44d;
+  border-color: #14a44d;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.card-title {
+  color: #2d4059;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #6b7b90;
+  line-height: 1.6;
+  min-height: 80px;
+}
+
+.text-muted {
+  color: #8392ab !important;
+  font-size: 0.9rem;
+}
+
+/* Print Styles */
+@media print {
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+  
+  .btn {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background-color: transparent !important;
+  }
+  
+  .row {
+    display: block !important;
+  }
+  
+  .col-md-4 {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .card-text {
+    min-height: auto;
+  }
+}
+
+/* Job Card Animation */
+.job-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Rating Styling */
+.rating {
+  color: #ffc107;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}

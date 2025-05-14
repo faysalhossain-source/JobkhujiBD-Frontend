@@ -1,0 +1,10 @@
+<div *ngIf="job; else loading" class="job-details">
+  <img [src]="job?.image" [alt]="job?.name" />
+  <h2>{{ job?.name }}</h2>
+  <p>{{ job?.description }}</p>
+  <button (click)="applyNow()">Apply Now</button>
+</div>
+
+<ng-template #loading>
+  <p>Loading job details...</p>
+</ng-template>

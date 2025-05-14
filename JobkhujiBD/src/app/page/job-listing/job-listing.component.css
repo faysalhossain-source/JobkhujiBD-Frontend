@@ -1,82 +1,8 @@
-/* Main table styling */
-table th,
-table td {
-  text-align: center;
+.job-table-section .table th,
+.job-table-section .table td {
   vertical-align: middle;
 }
 
-/* Small button styling */
-button.btn-sm {
-  padding: 4px 12px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect on button */
-button.btn-sm:hover {
-  background-color: #0d6efd;
-  color: #fff;
-  border-color: #0d6efd;
-}
-
-/* Light background for expanded section */
 .bg-light {
   background-color: #f8f9fa !important;
-}
-
-/* Heading inside expanded row */
-h6 {
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 1rem;
-}
-
-/* Optional: add rounded corner and soft shadow */
-.shadow-sm {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Table responsiveness for mobile */
-.table-responsive {
-  overflow-x: auto;
-}
-
-/* Improve readability between rows */
-tr + tr {
-  border-top: 1px solid #dee2e6;
-}
-
-/* Styling for section padding and font */
-.job-table-section {
-  font-size: 15px;
-}
-
-/* Secondary table header styling */
-.table-secondary th {
-  background-color: #e9ecef;
-  color: #212529;
-}
-
-/* Optional: alternate row background inside expanded table */
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-/* Expanded panel inside job row */
-.expanded-panel {
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-/* Ensure nested table fits on smaller screens */
-.expanded-panel .table {
-  font-size: 14px;
-}
-
-/* Make text wrap properly in small devices */
-.table td,
-.table th {
-  white-space: nowrap;
 }

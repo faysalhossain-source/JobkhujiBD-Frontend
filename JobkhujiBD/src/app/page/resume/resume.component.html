@@ -1,0 +1,125 @@
+
+<div>
+    <img src="resume/ressume.PNG" alt="Resume Writing Service" class="hero-image">
+     <div class="button-container">
+
+</div>
+<div class="resume-service-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Professional Resume Writing Services</h1>
+      <p>Get an ATS-friendly resume crafted by industry experts to boost your job search</p>
+      <button class="cta-button" (click)="scrollToPackages()">View Packages</button>
+    </div>
+  </div>
+
+  <div class="benefits-section">
+    <h2>Why Choose Our Resume Writing Service?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card" *ngFor="let benefit of benefits">
+        <div class="benefit-icon">
+          <i class="fas {{benefit.icon}}"></i>
+        </div>
+        <h3>{{benefit.title}}</h3>
+        <p>{{benefit.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="packages-section" id="packages">
+    <h2>Our Resume Writing Packages</h2>
+    <div class="packages-grid">
+      <div class="package-card" 
+           *ngFor="let pkg of packages" 
+           [class.popular]="pkg.popular"
+           (click)="selectPackage(pkg)">
+        <div class="package-header">
+          <h3>{{pkg.name}}</h3>
+          <div class="price">{{pkg.price}}</div>
+          <div class="best-for">Best for {{pkg.bestFor}}</div>
+          <div class="popular-tag" *ngIf="pkg.popular">Most Popular</div>
+        </div>
+        <ul class="features-list">
+          <li *ngFor="let feature of pkg.features">{{feature}}</li>
+        </ul>
+        <button class="select-button">Select Package</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials-section">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <div class="rating">
+          <span *ngFor="let star of [1,2,3,4,5]">
+            <i class="fas fa-star" [class.filled]="star <= testimonial.rating"></i>
+          </span>
+        </div>
+        <p class="testimonial-content">"{{testimonial.content}}"</p>
+        <div class="testimonial-author">
+          <strong>{{testimonial.name}}</strong>
+          <span>{{testimonial.role}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form-section" *ngIf="selectedPackage">
+    <div class="form-container">
+      <h2>Order {{selectedPackage.name}} Package</h2>
+      <form (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="experience">Years of Experience</label>
+          <select id="experience" required>
+            <option value="">Select</option>
+            <option value="0-2">0-2 years</option>
+            <option value="3-5">3-5 years</option>
+            <option value="6-10">6-10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="current-resume">Upload Current Resume (Optional)</label>
+          <input type="file" id="current-resume">
+        </div>
+        <button type="submit" class="submit-button">Proceed to Payment ({{selectedPackage.price}})</button>
+      </form>
+    </div>
+  </div> -->
+</div>
+<div class="resume-advice-box">
+  <p>
+    ✨ <strong>Why Your Resume Deserves Professional Attention</strong><br><br>
+    Your resume is more than just a piece of paper — it's your personal brand, your first impression, and your ticket to the next big opportunity. In today’s highly competitive job market, employers spend only a few seconds scanning a resume before deciding whether to shortlist or skip. That’s why it’s absolutely essential to make your resume not only stand out but also tell your story in a clear, impactful way.<br><br>
+
+    Whether you're a fresh graduate looking for your first job, a professional aiming for the next step in your career, or someone planning a major career shift — your resume must reflect your skills, experiences, and goals in the best possible light.<br><br>
+
+    <strong>Professional resume writers understand:</strong><br><br>
+    ✅ How to highlight your strengths<br>
+    ✅ How to tailor your resume to match industry demands<br>
+    ✅ How to structure it for clarity and easy reading<br>
+    ✅ How to use keywords that pass applicant tracking systems (ATS)<br><br>
+
+    <strong>Investing in a professionally written resume means:</strong><br><br>
+    ✅ Increased chances of getting interview calls<br>
+    ✅ Presenting yourself as a confident and qualified candidate<br>
+    ✅ Avoiding common mistakes that often cost opportunities<br>
+    ✅ Gaining a competitive edge in your job hunt<br><br>
+
+    <strong>Don’t let a weak resume hold you back.</strong> Let experts craft a resume that gets noticed and opens doors.<br>
+    Remember — you may be highly talented, but without a strong resume, recruiters may never get the chance to know that.
+  </p>
+</div>

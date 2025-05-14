@@ -1,0 +1,52 @@
+<!-- company-details.component.html -->
+<div class="company-details-container">
+  <button class="back-btn" routerLink="/home">← Back</button> 
+
+  <h2>Opportunities At <span class="company-name">{{ company.name }}</span></h2>
+
+  <div class="job-cards">
+    <div *ngFor="let job of jobs" class="job-card">
+      <img [src]="company.logo" alt="{{ company.shortName }}" />
+      <h4>{{ job.title }}</h4>
+      <p>{{ job.description }}</p>
+      <button class="view-details">View Details</button>
+    </div>
+  </div>
+
+  <div class="company-info">
+    <img [src]="company.logo" alt="Logo" class="logo" />
+    <h2>{{ company.name }}</h2>
+    <p>{{ company.address }}</p>
+
+    <div class="info-grid">
+      <div>
+        <strong>No. of Job Openings</strong>
+        <p>{{ company.jobOpenings }}</p>
+      </div>
+      <div>
+        <strong>Company Size</strong>
+        <p>{{ company.companySize }}</p>
+      </div>
+      <div>
+        <strong>Location</strong>
+        <p>{{ company.address }}</p>
+      </div>
+      <div>
+        <strong>Website</strong>
+        <p><a [href]="company.website" target="_blank">{{ company.website }}</a></p>
+      </div>
+      <div>
+        <strong>Social Media</strong>
+        <p>
+          <a [href]="company.social.facebook" target="_blank">Facebook</a> |
+          <a [href]="company.social.linkedin" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="about">
+      <h3>About {{ company.name }}</h3>
+      <p>{{ company.about }}</p>
+    </div>
+  </div>
+</div>

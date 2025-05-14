@@ -17,6 +17,9 @@ import { ApplyFormComponent } from './page/apply-form/apply-form.component';
 import { Mncjobs } from './alljobs/mnc/mnc.component';
 import { EngineeringJobs } from './alljobs/engineering/engineering.component';
 import { AdminJobsComponent } from './admin/admin-jobs/admin-jobs.component';
+import { FeatureCompaniesDetailsComponent } from './page/company/feature-companiesdetails/feature-companies-details.component';
+import { RemoteJobDetailsComponent } from './alljobs/remotejob-details/remotejob-details.component';
+import { ResumeComponent } from './page/resume/resume.component';
 
 
 
@@ -61,8 +64,32 @@ export const routes: Routes = [
       { path: '', redirectTo: '/login', pathMatch: 'full' } ,// Default redirect
       { path: 'company-details/:id', component: CompanyDetailsComponent },
       { path: 'apply/:id', component: ApplyFormComponent },
-      {path: 'engineering', component: EngineeringJobs}
-    ]
+      {path: 'engineering', component: EngineeringJobs},
+      {path: 'resume', component:ResumeComponent},
+        {
+            path: 'feature-companies-details/:slug',
+               component: FeatureCompaniesDetailsComponent
+        },  
+        
+      //remote jobs  
+  {
+     path: 'remote-jobs', component: RemoteJobsComponent
+     },
+  {
+     path: 'remotejob-details/:id', component: RemoteJobDetailsComponent 
+    },
+  { 
+    path: 'apply-job', component: ApplyFormComponent
+   },
+  { 
+    path: 'register', component: RegisterComponent
+   },
+  { 
+    path: '', redirectTo: '/remote-jobs', pathMatch: 'full' 
+
+  }
+
+]
   },
   { path: '**', redirectTo: '' } // Fallback for unknown paths
   

@@ -25,20 +25,20 @@ throw new Error('Method not implemented.');
     {
       id: 'cube-holdings',
       name: 'Cube Holdings Ltd.',
-      imageUrl: 'top job/Cube Holdings Ltd pic.jpg',
+      imageUrl: 'topjob/Cube Holdings Ltd pic.jpg',
       description: 'Cube Holdings is a top tech company in Bangladesh...',
       website: 'google.com'
     },
     {
       id: 'eskayef',
       name: 'Eskayef Pharmaceuticals Ltd',
-      imageUrl: 'top job/EPL PIC.png',
+      imageUrl: 'topjob/EPL PIC.png',
       description: 'Eskayef is a leading pharma company in Bangladesh...',
     },
     {
       id: 'সোশ্যাল বিজনেস প্রোজেক্ট লিমিটেড',
       name: 'Social Business Project Ltd.',
-      imageUrl: 'top-job/সোশ্যাল বিজনেস প্রোজেক্ট PIC.jpg',
+      imageUrl: 'top job/সোশ্যাল বিজনেস প্রোজেক্ট PIC.jpg',
       description: 'Beximco is a renowned pharmaceutical company...',
     },
     {
@@ -51,7 +51,7 @@ throw new Error('Method not implemented.');
     {
       id: 'image Lmd',
       name: 'images Ltd.',
-      imageUrl: 'top-job/Images Lmd pic.jpg',
+      imageUrl: 'top job/Images Lmd pic.jpg',
       description: 'Grameenphone is the largest telecom operator in Bangladesh...',
     },
     // Add all companies here

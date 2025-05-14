@@ -7,6 +7,9 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class JobService {
+  getAllJobs() {
+    throw new Error('Method not implemented.');
+  }
   apiEndPoint: string = 'https://freeapi.miniprojectideas.com/api/JobPortal/';
 
   loginSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

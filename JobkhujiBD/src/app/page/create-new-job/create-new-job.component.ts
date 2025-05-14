@@ -31,18 +31,27 @@ export class CreateNewJobComponent implements OnInit {
 
   constructor(private jobSrv: JobService, private router: Router) {}
 
-  ngOnInit(): void {
-    const userData = localStorage.getItem('jobLoginUser');
-    if (!userData) {
-      alert('⚠️ You need to login first to post a job!');
-      this.router.navigate(['/login']);
-      return;
-    }
-
-    const data = JSON.parse(userData);
-    this.jobObj.EmployerId = data.employerId;
-    this.loadCategories();
+ ngOnInit(): void {
+  const userData = localStorage.getItem('jobLoginUser');
+  if (!userData) {
+    alert('⚠️ You need to login first to post a job!');
+    this.router.navigate(['/login']);
+    return;
   }
+
+  const data = JSON.parse(userData);
+
+  // Check user role
+  const userRole = data.role?.toUpperCase();
+  if (userRole !== 'EMPLOYER' && userRole !== 'ADMIN') {
+    alert('❌ Only Employer or Admin can create new jobs!');
+    this.router.navigate(['/login']);
+    return;
+  }
+
+  this.jobObj.EmployerId = data.employerId;
+  this.loadCategories();
+}
 
   loadCategories() {
     this.jobSrv.getAllCategory().subscribe((res: any) => {
