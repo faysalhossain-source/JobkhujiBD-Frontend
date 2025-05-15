@@ -32,6 +32,13 @@
                 <button *ngIf="!isLoggedIn" routerLink="/register" class="btn btn-success round-button" type="button">Register</button>
                 <button *ngIf="isLoggedIn" (click)="logoff()" class="btn btn-success round-button" type="button">LogOff</button>
             </form>
+            <span 
+                 class="nav-link cursor-pointer collapsed"
+                    (click)="navigateToMembership()"
+                      [attr.aria-expanded]="isCollapsed ? 'false' : 'true'"
+                            data-v-c66dd60c=""> 
+                               Membership
+            </span>
             
               
         </div>

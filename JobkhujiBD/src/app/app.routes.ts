@@ -9,7 +9,6 @@ import { MyJobsComponent } from './page/my-jobs/my-jobs.component';
 import { CompaniesComponent } from './page/company/companies.component';
 import { RemoteJobsComponent } from './alljobs/remote/remote.component';
 import { MainlayoutComponent } from './admin/mainlayout/mainlayout.component';
-import { DeshboardComponent } from './admin/deshboard/deshboard.component';
 import { HomeMainComponentComponent } from './page/home-main-component/home-main-component.component';
 import { RegisterComponent } from './page/registration/registration.component';
 import { CompanyDetailsComponent } from './page/company/company-details/company-details.component';
@@ -20,6 +19,7 @@ import { AdminJobsComponent } from './admin/admin-jobs/admin-jobs.component';
 import { FeatureCompaniesDetailsComponent } from './page/company/feature-companiesdetails/feature-companies-details.component';
 import { RemoteJobDetailsComponent } from './alljobs/remotejob-details/remotejob-details.component';
 import { ResumeComponent } from './page/resume/resume.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 
 
@@ -37,7 +37,7 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        component: DeshboardComponent
+        component: DashboardComponent
       },
       {
         path: 'admin-jobs',

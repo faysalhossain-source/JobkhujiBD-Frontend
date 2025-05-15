@@ -1,14 +1,22 @@
-import { CommonModule, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [CommonModule,NgFor],
+  imports: [CommonModule,NgFor,NgIf,FormsModule],
   selector: 'app-resume-writing-service',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent {
+scrollToTop() {
+throw new Error('Method not implemented.');
+}
+onFileChange($event: Event) {
+throw new Error('Method not implemented.');
+}
+  // Packages Data
   packages = [
     {
       name: 'Basic',
@@ -49,6 +57,7 @@ export class ResumeComponent {
     }
   ];
 
+  // Benefits Data
   benefits = [
     {
       icon: 'fa-file-alt',
@@ -72,6 +81,7 @@ export class ResumeComponent {
     }
   ];
 
+  // Testimonials Data
   testimonials = [
     {
       name: 'Md. Faysal hossain',
@@ -93,8 +103,47 @@ export class ResumeComponent {
     }
   ];
 
-  selectedPackage: any = null;
+  // Resume Samples Data
+  resumeSamples = [
+    {
+      id: 1,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p1L.png',
+      altText: 'Professional Resume Sample 1'
+    },
+    {
+      id: 2,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p2L.png',
+      altText: 'Professional Resume Sample 2'
+    },
+    {
+      id: 3,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p3L.png',
+      altText: 'Creative Resume Sample 3'
+    },
+    {
+      id: 4,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p4L.png',
+      altText: 'Executive Resume Sample 4'
+    },
+    {
+      id: 5,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p5L.png',
+      altText: 'Modern Resume Sample 5'
+    },
+    {
+      id: 6,
+      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p6L.png',
+      altText: 'Creative Resume Sample 6'
+    }
+  ];
 
+  // Component State
+  selectedPackage: any = null;
+  currentResumeIndex = 0;
+  visibleResumeItems = 4;
+formData: any;
+
+  // Package Methods
   scrollToPackages(): void {
     const element = document.getElementById('packages');
     if (element) {
@@ -109,5 +158,36 @@ export class ResumeComponent {
   submitForm(): void {
     alert(`Thank you for selecting ${this.selectedPackage.name} package! Our team will contact you shortly.`);
     this.selectedPackage = null;
+  }
+
+  // Resume Carousel Methods
+  get visibleResumes() {
+    return this.resumeSamples.slice(this.currentResumeIndex, this.currentResumeIndex + this.visibleResumeItems);
+  }
+
+  prevResumeSlide(): void {
+    this.currentResumeIndex = Math.max(0, this.currentResumeIndex - 1);
+  }
+
+  nextResumeSlide(): void {
+    this.currentResumeIndex = Math.min(
+      this.resumeSamples.length - this.visibleResumeItems, 
+      this.currentResumeIndex + 1
+    );
+  }
+
+  downloadResume(sampleId: number): void {
+    console.log(`Downloading resume ${sampleId}`);
+    // Implement actual download logic
+  }
+
+  viewResume(sampleId: number): void {
+    console.log(`Viewing resume ${sampleId}`);
+    // Implement actual view logic
+  }
+
+  // Helper method for star ratings
+  getStars(rating: number): number[] {
+    return Array(rating).fill(0).map((x, i) => i);
   }
 }

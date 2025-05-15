@@ -10,6 +10,10 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink]// Add any necessary imports here
 })
 export class NavbarComponent {
+isCollapsed: any;
+navigateToMembership() {
+throw new Error('Method not implemented.');
+}
   isLoggedIn = false; // Default not logged in
   userInfo: any = null;
 

@@ -26,7 +26,7 @@
       <div class="col-12 col-md-6">
         <label class="form-label">Select Category</label>
         <select class="form-select" [(ngModel)]="jobObj.CategoryId" name="CategoryId">
-          <option [ngValue]="null" disabled selected>Select a Category</option>
+          <option [ngValue]="null" disabled >Select a Category</option>
           <option *ngFor="let cat of categoryList" [ngValue]="cat.jobCategoryId">
             {{ cat.categoryName }}
           </option>
@@ -40,6 +40,7 @@
           <option value="" disabled selected>Select Experience</option>
           <option value="Fresher">Fresher</option>
           <option value="Experienced">Experienced</option>
+           <option value="Both">Both</option>
         </select>
       </div>
 
