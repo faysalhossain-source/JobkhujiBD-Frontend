@@ -1,1 +1,148 @@
-<p>recentjob-circular-details works!</p>
+<!-- job-listings.component.html -->
+<div class="background_light_blue">
+  <div class="container-fluid">
+    <div class="row custom-row">
+      <!-- Filters Column -->
+      <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-12 col-sm-12">
+        <div class="browse_job_filter bg-white p-4 rounded">
+          <!-- Job Type Filter -->
+          <div class="job_type_filter filter_box">
+            <h2 class="filter_category_title">Job Type</h2>
+            <div class="job_filter_box">
+              <div class="filter_wrapper">
+                <input type="radio" id="Full Time" name="jobtype" 
+                  [(ngModel)]="selectedJobType" value="Full Time">
+                <label for="Full Time">Full Time</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Part Time" name="jobtype" 
+                  [(ngModel)]="selectedJobType" value="Part Time">
+                <label for="Part Time">Part Time</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Contractual" name="jobtype" 
+                  [(ngModel)]="selectedJobType" value="Contractual">
+                <label for="Contractual">Contractual</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Internship" name="jobtype" 
+                  [(ngModel)]="selectedJobType" value="Internship">
+                <label for="Internship">Internship</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Freelance" name="jobtype" 
+                  [(ngModel)]="selectedJobType" value="Freelance">
+                <label for="Freelance">Freelance</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expertise Level Filter -->
+          <div class="expertice_level_filter filter_box">
+            <h2 class="filter_category_title">Expertise Level</h2>
+            <div class="job_filter_box">
+              <div class="filter_wrapper">
+                <input type="radio" id="Beginner" name="jLevel" 
+                  [(ngModel)]="selectedLevel" value="Beginner">
+                <label for="Beginner">Beginner</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Mid Level" name="jLevel" 
+                  [(ngModel)]="selectedLevel" value="Mid Level">
+                <label for="Mid Level">Mid Level</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Experienced" name="jLevel" 
+                  [(ngModel)]="selectedLevel" value="Experienced">
+                <label for="Experienced">Experienced</label>
+              </div>
+              <div class="filter_wrapper">
+                <input type="radio" id="Top Level" name="jLevel" 
+                  [(ngModel)]="selectedLevel" value="Top Level">
+                <label for="Top Level">Top Level</label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary mt-3" (click)="clearFilters()">Clear Filters</button>
+        </div>
+      </div>
+
+      <!-- Jobs Column -->
+      <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12">
+        <div class="browse_job_main">
+          <!-- Search Form -->
+          <div class="browse_job_search large_device_banner_search">
+            <form class="search_form">
+              <div class="form_wrapper job_title_box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search: UN jobs in Bangladesh" 
+                  [(ngModel)]="searchQuery" name="searchQuery">
+              </div>
+              <div class="form_wrapper">
+                <i class="bi bi-geo-alt-fill"></i>
+                <input type="text" placeholder="Location" 
+                  [(ngModel)]="locationQuery" name="locationQuery">
+              </div>
+              <button type="submit">Search</button>
+            </form>
+          </div>
+
+          <!-- Job Listings -->
+          <div class="browse_job_data">
+            <h1>Found <span>{{filteredJobs.length}}</span> Jobs</h1>
+          </div>
+
+          <div class="browse_job_box">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class="col" *ngFor="let job of filteredJobs">
+                <div class="job-card">
+                  <div class="job-card__content">
+                    <div class="job-card__header">
+                      <div class="job-card__logo">
+                        <img [src]="job.logo" [alt]="job.company" class="img-thumbnail">
+                      </div>
+                      <div class="job-card__main-info">
+                        <h3 class="job-title">
+                          <a [routerLink]="['/jobs', job.id]" class="job-title-link">{{job.title}}</a>
+                          <span class="badge">{{job.level}}</span>
+                        </h3>
+                        <div class="company-name">{{job.company}}</div>
+                        <div class="meta-info">
+                          <span class="meta-item location-wrapper">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="location-text">{{job.location}}</span>
+                          </span>
+                          <span class="meta-item">
+                            <i class="bi bi-briefcase"></i>
+                            {{job.type}}
+                          </span>
+                          <span class="meta-item">
+                            <i class="bi bi-wallet2"></i>
+                            {{job.salary}}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="job-card__actions">
+                      <div class="deadline">
+                        <i class="bi bi-clock"></i>
+                        <span>{{job.deadline}}</span>
+                      </div>
+                      <div class="action-buttons">
+                        <button aria-label="Share Job" class="btn-share">
+                          <i class="bi bi-share"></i>
+                        </button>
+                     <a routerLink="/apply-form" class="btn-apply">Apply Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

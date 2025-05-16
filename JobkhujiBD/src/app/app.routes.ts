@@ -20,6 +20,7 @@ import { FeatureCompaniesDetailsComponent } from './page/company/feature-compani
 import { RemoteJobDetailsComponent } from './alljobs/remotejob-details/remotejob-details.component';
 import { ResumeComponent } from './page/resume/resume.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { RecenJobcircularComponent } from './alljobs/recentjob-circular-details/recentjob-circular-details.component';
 
 
 
@@ -87,8 +88,48 @@ export const routes: Routes = [
   { 
     path: '', redirectTo: '/remote-jobs', pathMatch: 'full' 
 
-  }
+  },
+  //  route data,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, 
+  
+  //  {
+  //   path: '',
+  //   component: HomeComponent,
+  //   title: 'Career Doctor - Find Your Dream Job'
+  // },
+  // {
+  //   path: 'home/:id',
+  //   component: HomeComponent,
+  //   title: 'Browse Jobs',
+  //   // Example of route data (can be accessed with input() in component)
+  //   data: { 
+  //     showFilters: true,
+  //     requireAuth: false 
+  //   }
+  // },
+  // {
+  //   path: 'recentjobcirculardetails',
+  //   component: RecenJobcircularComponent,
+  //   title: 'Job Details',
+  //   // Using component input binding (new in Angular 16+)
+  //   data: { preload: true }
+  // },
+ 
+  // {
+  //   path: 'signin',
+  //   component: LoginComponent,
+  //   title: 'Login to Apply'
+  // },
+  // {
+  //   path: 'admin',
+  //   loadComponent: () => import('./admin/admin.component').then(m => m.AdminComponent),
+  //   // Using functional guards (new preferred way)
+  //   canActivate: [() => inject(AuthService).isAdmin()]
+  // },
 
+{
+  path: 'recentjob-circular-details',
+  component: RecenJobcircularComponent,
+}
 ]
   },
   { path: '**', redirectTo: '' } // Fallback for unknown paths

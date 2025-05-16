@@ -225,12 +225,12 @@
 .skill-jobs-image img {
   width: 100%;
   height: auto;
-  border-radius: 0; /* Removed border radius for full-width */
-  box-shadow: none; /* Removed shadow for cleaner look */
+  border-radius: 0; /*  border radius for full-width */
+  box-shadow: none; /*  shadow for cleaner look */
   display: block; /* Ensures no extra space below image */
 }
 
-/* App links styling - unchanged */
+/* App links styling */
 .app-links {
   margin: 1rem 0;
   display: flex;
@@ -253,7 +253,7 @@
   width: auto;
 }
 
-/* Buttons styling - unchanged */
+/* Buttons styling  */
 .action-buttons {
   margin-top: 1.5rem;
   display: flex;
@@ -304,14 +304,14 @@
 }
 
 .image-button-container {
-  padding: 20px; /* চারপাশে সমান স্পেস */
+  padding: 20px; /* around same space */
   display: flex;
   justify-content: center;
-  position: relative; /* left-half-link positioning এর জন্য */
+  position: relative; /* left-half-link positioning foe it */
 }
 
 .image-with-button {
-  border: 2px solid #ccc; /* বর্ডার */
+  border: 2px solid #ccc; /* border */
   border-radius: 8px;
   width: 100%;
   max-width: 900px; /* Responsive max width */
@@ -322,7 +322,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* ছবির বাম অংশ */
+  width: 50%; /* the portion'left of pic */
   height: 100%;
   z-index: 2;
 }
@@ -374,7 +374,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   height: 100%;
-  background: #8c8ddd;
+  background: #e6e7f8;
 }
 
 .job-card:hover {
@@ -425,7 +425,7 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #2d3748;
+  color: #03060a;
 }
 
 .badge {
@@ -484,6 +484,7 @@
 }
 
 .adimg {
+  width: 70%;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
