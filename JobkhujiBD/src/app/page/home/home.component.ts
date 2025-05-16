@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule, RouterLink],
+  imports: [RouterModule, FormsModule, CommonModule, RouterLink,NgFor],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+applyForJob(arg0: any) {
+throw new Error('Method not implemented.');
+}
+viewDetails(arg0: any) {
+throw new Error('Method not implemented.');
+}
   searchKeyword = '';
   searchLocation = '';
   searchExperience = '';
@@ -101,6 +107,7 @@ export class HomeComponent implements OnInit {
     }
   
   ];
+jobs: any;
 
   constructor(private router: Router) {}
 

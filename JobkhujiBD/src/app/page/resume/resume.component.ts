@@ -107,32 +107,32 @@ throw new Error('Method not implemented.');
   resumeSamples = [
     {
       id: 1,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p1L.png',
+      imageUrl: 'cv1.png',
       altText: 'Professional Resume Sample 1'
     },
     {
       id: 2,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p2L.png',
+      imageUrl: 'cv2.png',
       altText: 'Professional Resume Sample 2'
     },
     {
       id: 3,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p3L.png',
+      imageUrl: 'cv3.png',
       altText: 'Creative Resume Sample 3'
     },
     {
       id: 4,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p4L.png',
+      imageUrl: 'cv4.png',
       altText: 'Executive Resume Sample 4'
     },
     {
       id: 5,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p5L.png',
+      imageUrl: 'cv5.png',
       altText: 'Modern Resume Sample 5'
     },
     {
       id: 6,
-      imageUrl: 'https://static.naukimg.com/s/0/0/i/manual-resume/sample-resumes/p6L.png',
+      imageUrl: 'cv6.png',
       altText: 'Creative Resume Sample 6'
     }
   ];

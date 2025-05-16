@@ -535,7 +535,7 @@ input[type="file"] {
   background-color: #f8fafc;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  color: #4a5568;
+  color: #07080a;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -547,7 +547,7 @@ input[type="file"] {
 
 .submit-btn {
   padding: 12px 25px;
-  background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+  background: linear-gradient(135deg, #cad1f1 0%, #0c0b0f 100%);
   color: white;
   border: none;
   border-radius: 8px;
