@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecentjobCircularDetailsComponent } from './recentjob-circular-details.component';
+import { RecenJobcircularComponent } from './recentjob-circular-details.component';
 
 describe('RecentjobCircularDetailsComponent', () => {
-  let component: RecentjobCircularDetailsComponent;
-  let fixture: ComponentFixture<RecentjobCircularDetailsComponent>;
+  let component: RecenJobcircularComponent;
+  let fixture: ComponentFixture<RecenJobcircularComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecentjobCircularDetailsComponent]
+      imports: [RecenJobcircularComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RecentjobCircularDetailsComponent);
+    fixture = TestBed.createComponent(RecenJobcircularComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

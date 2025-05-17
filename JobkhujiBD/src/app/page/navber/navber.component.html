@@ -1,47 +1,71 @@
-        <nav class="navbar navbar-expand-lg navbar-white bg-white">
-    <div class="container">
-        <a class="navbar-brand" routerLink="/">
-            <img src="jobkhuji1.png" alt="" class="d-inline-block align-text-top">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="jobkhuji1.png" alt="" class="d-inline-block align-text-top" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/jobs">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/companies">Companies</a>
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
+          <a class="nav-link" routerLink="/create-new-job">Create New Job</a>
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
+          <a class="nav-link" routerLink="/job-listing">Job Listing</a>
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
+          <a class="nav-link" routerLink="/my-jobs"> My Jobs</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button
+          *ngIf="!isLoggedIn"
+          routerLink="/login"
+          class="btn btn-outline-primary round-button mx-2"
+          type="button"
+        >
+          Login
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/jobs">Jobs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/companies">Companies</a>
-
-                </li>
-                <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
-                    <a class="nav-link" routerLink="/create-new-job">Create New Job</a>
-                </li>
-                <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
-                  <a class="nav-link" routerLink="/job-listing">Job Listing</a>
-                </li>
-                <li class="nav-item" *ngIf="userInfo?.userRole == 'Employer'">
-                  <a class="nav-link" routerLink="/my-jobs"> My Jobs</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <button *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-outline-primary round-button mx-2" type="button">Login</button>
-                <button *ngIf="!isLoggedIn" routerLink="/register" class="btn btn-success round-button" type="button">Register</button>
-                <button *ngIf="isLoggedIn" (click)="logoff()" class="btn btn-success round-button" type="button">LogOff</button>
-            </form>
-            <span 
-                 class="nav-link cursor-pointer collapsed"
-                    (click)="navigateToMembership()"
-                      [attr.aria-expanded]="isCollapsed ? 'false' : 'true'"
-                            data-v-c66dd60c=""> 
-                               Membership
-            </span>
-            
-              
-        </div>
+        <button
+          *ngIf="!isLoggedIn"
+          routerLink="/register"
+          class="btn btn-success round-button"
+          type="button"
+        >
+          Register
+        </button>
+        <button
+          *ngIf="isLoggedIn"
+          (click)="logoff()"
+          class="btn btn-success round-button"
+          type="button"
+        >
+          LogOff
+        </button>
+      </form>
+      <a href="membership"
+        class="nav-link cursor-pointer collapsed"
+        routerLink="/membership"
+        routerLinkActive="active"
+        [attr.aria-expanded]="isCollapsed ? 'false' : 'true'"
+      >
+        Membership
+      </a>
     </div>
-  </nav>
-  
+  </div>
+</nav>

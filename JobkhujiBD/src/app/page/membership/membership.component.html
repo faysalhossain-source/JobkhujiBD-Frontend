@@ -1,0 +1,144 @@
+<!-- membership.component.html -->
+<section id="paid_membership" class="mt-5">
+  <div class="container">
+    <div class="one_stop_main">
+      <div class="row align-items-center">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="one_stop_deatils px-2">
+            <h1 class="section_title">Skill Jobs: Your One-Stop Career Solution</h1>
+            <p>
+              Skill Jobs is a popular job site and a comprehensive career solutions provider. 
+              Our paid membership offers a complete career guide with step-by-step directions 
+              on how to create an outstanding resume, ace the interview, and find the right job. 
+              This package enables job seekers to get access to all of our premium resources 
+              such as pro resume builder, skills tests, career toolkit, remote work along with 
+              easy job application.
+            </p>
+            <div class="paid_member_btn">
+              <button class="outline_btn">Become a Paid Member</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="one_stop_img">
+            <img src="membership/paidmembership.jpg" alt="One stop solution" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="purchase" class="job_seeker_package mt-5">
+      <h2 class="section_title text-center mb-4">Job Seekers Packages</h2>
+      
+      <!-- Mobile View (Cards) -->
+      <div class="package_main d-md-none d-block">
+        <div class="row g-4">
+          <div class="col-12" *ngFor="let pkg of packages">
+            <div class="package_cart text-center p-4 h-100">
+              <h2 class="fs-2 fw-bold">{{ pkg.name }}</h2>
+              <h3 *ngIf="pkg.price !== 'FREE'">Price: {{ pkg.price }}</h3>
+              <h3 *ngIf="pkg.duration">{{ pkg.duration }}</h3>
+              
+              <ul class="checkmark text-start ps-0">
+                <li *ngFor="let feature of pkg.features" 
+                    [class.text-decoration-line-through]="feature.strikethrough">
+                  <span *ngIf="feature.available">✓</span>
+                  {{ feature.text }}
+                </li>
+              </ul>
+              
+              <div class="mt-3">
+                <a href="/login" class="blue_btn apply_btn">Login Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Desktop View (Table) -->
+      <div class="package_table pt-4 table-responsive d-md-block d-none">
+        <table class="table table-borderless table-striped">
+          <thead>
+            <tr class="align-top">
+              <th scope="col">Features</th>
+              <th scope="col" class="text-center" *ngFor="let pkg of packages">
+                {{ pkg.name }}<span *ngIf="pkg.duration">{{ pkg.duration }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic rows for features -->
+            <tr *ngFor="let feature of packages[0].features; let i = index">
+              <th scope="row">{{ stripParentheses(feature.text) }}</th>
+              <td *ngFor="let pkg of packages" class="text-center">
+                <span *ngIf="pkg.features[i].available">✓</span>
+                <span *ngIf="!pkg.features[i].available">✗</span>
+              </td>
+            </tr>
+            
+            <!-- Price row -->
+            <tr>
+              <th scope="row"></th>
+              <td *ngFor="let pkg of packages" class="text-center fw-bold">
+                {{ pkg.price }}
+              </td>
+            </tr>
+            
+            <!-- Terms and conditions -->
+            <tr>
+              <td colspan="5">
+                <div class="form-check mx-4">
+                  <input type="checkbox" id="flexCheckDefault" class="form-check-input">
+                  <label for="flexCheckDefault" class="form-check-label">
+                    I HAVE READ AND AGREE TO THE WEBSITE'S 
+                    <a href="/terms-and-conditions">TERMS AND CONDITIONS</a>, 
+                    <a href="/privacy-and-policy">PRIVACY POLICY</a> AND 
+                    <a href="/refund-policies">REFUND POLICY</a>,
+                    <a href="/about-us">ABOUT US</a> *
+                  </label>
+                </div>
+              </td>
+            </tr>
+            
+            <!-- Login button -->
+            <tr>
+              <td></td>
+              <td colspan="4">
+                <a href="/login" class="btn btn-danger mb-5">Login To Purchase</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="benefits mt-5">
+      <h3 class="section_title text-center">Benefits Of Skills Jobs Paid Membership</h3>
+      <ul class="checkmark">
+        <li *ngFor="let benefit of benefits">{{ benefit }}</li>
+      </ul>
+    </div>
+
+    <div class="earn_reward mt-5">
+      <div class="row align-items-center">
+        <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12">
+          <div class="earn_reward_img">
+            <img src="membership/leaderboard1.png" alt="Earn Reward" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="earn_reward_deatils">
+            <h6 class="section_title">Participate In Skills Development Activities And Earn Reward</h6>
+            <p>
+              Skill Jobs give you the chance to earn rewards by participating
+              in skill development activities. It's a complete win for you.
+              You can master new skills and enhance your work performance by
+              engaging in skill development programs. You can unlock new
+              premium resources and upgrade your position using these rewards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

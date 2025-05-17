@@ -17,13 +17,16 @@ interface Job {
 }
 
 @Component({
-  selector: 'app-job-listings',
+  selector: 'app-recentjob-circular-details',
   standalone: true,
   imports: [CommonModule, FormsModule,RouterLink],
   templateUrl: './recentjob-circular-details.component.html',
   styleUrl: './recentjob-circular-details.component.css'
 })
 export class RecenJobcircularComponent {
+searchJobs() {
+throw new Error('Method not implemented.');
+}
   selectedJobType: string = '';
   selectedLevel: string = '';
   selectedDivision: string = '';
@@ -188,7 +191,7 @@ export class RecenJobcircularComponent {
     // Add more job objects here if needed...
   ];
 
- apply() {
+ apply(jobId: string) {
   const isLoggedIn = !!localStorage.getItem('token');
   if (isLoggedIn) {
     this.router.navigate(['/apply-form']);

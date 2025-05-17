@@ -21,6 +21,7 @@ import { RemoteJobDetailsComponent } from './alljobs/remotejob-details/remotejob
 import { ResumeComponent } from './page/resume/resume.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { RecenJobcircularComponent } from './alljobs/recentjob-circular-details/recentjob-circular-details.component';
+import { PaidMembershipComponent } from './page/membership/membership.component';
 
 
 
@@ -51,8 +52,14 @@ export const routes: Routes = [
     path: '',
     component: HomeMainComponentComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'create-new-job', component: CreateNewJobComponent },
+      {
+         path: '',
+          component: HomeComponent
+         },
+      {
+         path: 'create-new-job',
+          component: CreateNewJobComponent 
+        },
       { path: 'job-details', component: JobDetailsComponent },
       { path: 'job-listing', component: JobListingComponent },
       { path: 'jobs', component: JobsComponent },
@@ -62,11 +69,27 @@ export const routes: Routes = [
       { path: 'remote', component: RemoteJobsComponent },
       {path : 'mnc' , component : Mncjobs},
       { path: 'register', component: RegisterComponent },
-      { path: '', redirectTo: '/login', pathMatch: 'full' } ,// Default redirect
-      { path: 'company-details/:id', component: CompanyDetailsComponent },
-      { path: 'apply/:id', component: ApplyFormComponent },
-      {path: 'engineering', component: EngineeringJobs},
-      {path: 'resume', component:ResumeComponent},
+      { 
+        path: '', redirectTo: '/login',
+         pathMatch: 'full'
+         } ,// Default redirect
+      {
+         path: 'company-details/:id',
+          component: CompanyDetailsComponent
+         },
+      {
+         path: 'apply/:id',
+          component: ApplyFormComponent
+         },
+      {
+        path: 'engineering',
+         component: EngineeringJobs
+        },
+      {
+        path: 'resume',
+         component:ResumeComponent
+
+      },
         {
             path: 'feature-companies-details/:slug',
                component: FeatureCompaniesDetailsComponent
@@ -129,6 +152,10 @@ export const routes: Routes = [
 {
   path: 'recentjob-circular-details',
   component: RecenJobcircularComponent,
+},
+{
+  path: 'membership',
+  component: PaidMembershipComponent,
 }
 ]
   },

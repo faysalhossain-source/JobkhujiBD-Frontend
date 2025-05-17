@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +17,7 @@ throw new Error('Method not implemented.');
   isLoggedIn = false; // Default not logged in
   userInfo: any = null;
 
-  constructor() {
+  constructor(private router: Router) {
     // Mock data, pore service theke niye asbe
     this.isLoggedIn = true;
     this.userInfo = {
@@ -31,4 +31,5 @@ throw new Error('Method not implemented.');
     this.userInfo = null;
     console.log('Logged off');
   }
+  
 }
