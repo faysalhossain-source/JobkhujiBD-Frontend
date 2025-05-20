@@ -4,7 +4,7 @@ import { CreateNewJobComponent } from './page/create-new-job/create-new-job.comp
 import { JobDetailsComponent } from './page/job-details/job-details.component';
 import { JobListingComponent } from './page/job-listing/job-listing.component';
 import { JobsComponent } from './page/jobs/jobs.component';
-import { LoginComponent } from './page/login/login.component';
+//import { LoginComponent } from './page/login/login.component';
 import { MyJobsComponent } from './page/my-jobs/my-jobs.component';
 import { CompaniesComponent } from './page/company/companies.component';
 import { RemoteJobsComponent } from './alljobs/remote/remote.component';
@@ -22,6 +22,7 @@ import { ResumeComponent } from './page/resume/resume.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { RecenJobcircularComponent } from './alljobs/recentjob-circular-details/recentjob-circular-details.component';
 import { PaidMembershipComponent } from './page/membership/membership.component';
+import { LoginComponent } from './page/login/login.component';
 
 
 
@@ -64,7 +65,7 @@ export const routes: Routes = [
       { path: 'job-listing', component: JobListingComponent },
       { path: 'jobs', component: JobsComponent },
       { path: 'my-jobs', component: MyJobsComponent },
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component:LoginComponent },
       { path: 'companies', component: CompaniesComponent },
       { path: 'remote', component: RemoteJobsComponent },
       {path : 'mnc' , component : Mncjobs},

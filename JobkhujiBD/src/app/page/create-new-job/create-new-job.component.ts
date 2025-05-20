@@ -42,15 +42,15 @@ export class CreateNewJobComponent implements OnInit {
     const data = JSON.parse(userData);
 
     // Check user role
-    const userRole = data.role?.toUpperCase();
-    if (userRole !== 'EMPLOYER' && userRole !== 'ADMIN') {
-      alert('❌ Only Employer or Admin can create new jobs!');
-      this.router.navigate(['/login']);
-      return;
-    }
+    // const userRole = data.role?.toUpperCase();
+    // if (userRole !== 'EMPLOYER' && userRole !== 'ADMIN') {
+    //   alert('❌ Only Employer or Admin can create new jobs!');
+    //   this.router.navigate(['/login']);
+    //   return;
+    // }
 
-    this.jobObj.EmployerId = data.employerId;
-    this.loadCategories();
+    // this.jobObj.EmployerId = data.employerId;
+    // this.loadCategories();
   }
 
   loadCategories() {

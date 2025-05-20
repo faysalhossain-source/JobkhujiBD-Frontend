@@ -17,3 +17,10 @@ export interface RecentJobListing extends Job {
   salary?: string;     // অপশনাল ফিল্ড
   location?: string;   // অপশনাল ফিল্ড
 }
+
+interface LocalJob {
+  id: number;
+  name: string;
+  description?: string;
+  image?: string;
+}

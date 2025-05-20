@@ -1,42 +1,135 @@
+
+
+
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/auth.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginObj = {
-    UserName: '',
-    Password: ''
-  };
-  constructor(private router: Router) {}
-  // Function to handle login
-  // This function is called when the login button is clicked
 
- onLogin() {
-  if (!this.loginObj.UserName || !this.loginObj.Password) {
-    alert('Please enter both email and password.');
-    return;
+  showOverlay = true;
+
+  email = '';
+  password = '';
+loginObj: any;
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
+
+  closeOverlay() {
+    this.showOverlay = false;
   }
 
-  // Dummy login validation
-  const dummyUser = {
-    UserName: this.loginObj.UserName,
-    role: this.loginObj.UserName.includes('employer') ? 'EMPLOYER' : 'JOBSEEKER',
-    employerId: 101
-  };
+  onLogin() {
+    this.auth.login({ email: this.email, password: this.password })
+      .subscribe({
+        next: (res: { access_token: any }) => {
+          this.auth.setToken(res.access_token);
 
-  localStorage.setItem('jobLoginUser', JSON.stringify(dummyUser));
+          const role = this.auth.getUserRole(); // ✅ Make sure this method exists
 
-  if (dummyUser.role === 'EMPLOYER') {
-    this.router.navigate(['/create-new-job']);
-  } else {
-    this.router.navigate(['/jobs']);
+          // Role-based navigation
+          switch (role) {
+            case 'admin':
+              this.router.navigate(['/admin']);
+              break;
+
+            case 'user':
+              this.router.navigate(['/user']);
+              break;
+
+            default:
+              alert('Unknown role. Please contact support.');
+          }
+        },
+        error: (error: any) => {
+          alert('Invalid credentials');
+          console.log(error);
+        }
+      });
   }
 }
 
+
+
+
+
+
+
+
+/**
+ * 
+ * import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+// import { AuthService } from '../../core/auth.service';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../core/auth.service';
+
+@Component({
+  selector: 'app-loging',
+  standalone:true,
+  imports: [NgIf, RouterLink, FormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
+})
+export class LogingComponent {
+
+  showOverlay = true;
+loginObj: any;
+
+  closeOverlay() {
+    this.showOverlay = false;
+  }
+
+  email = '';
+  password = '';
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
+
+  onLogin() {
+    this.auth.login({ email: this.email, password: this.password })
+      .subscribe({
+        next: (res: { access_token: any; }) => {
+          this.auth.setToken(res.access_token);
+          this.router.navigate(['/home']);
+          // const role = this.auth.getUserRole();
+
+          //role based navigation
+          switch(role){
+            case 'admin':
+              window.location.href="/admin";
+
+              break;
+
+            case 'user':
+              window.location.href="/user";
+              break;
+
+            default:
+              alert('Unknow role. Please contact support.');  
+          }
+        },
+        error: (error: any) => {
+          alert('Invalid credentials')
+          console.log(error)
+        }
+      });
+  }
 }
+ * 
+ */

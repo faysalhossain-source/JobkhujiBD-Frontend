@@ -20,7 +20,7 @@
 //       responsibilities: ['Develop user interfaces', 'Optimize performance'],
 //       postedDate: new Date('2023-11-01')
 //     },
-//     // আরও জব যোগ করুন
+//     
 //   ];
 
 //   getRecentJobs(): Job[] {
