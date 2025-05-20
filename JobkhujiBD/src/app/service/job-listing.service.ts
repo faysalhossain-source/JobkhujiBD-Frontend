@@ -1,38 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobListingService {
+  private baseUel = 'http://localhost:8080/api/job-listings';
 
-  private baseUrl = 'http://localhost:8081/api/job-listings';
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
+  createNewJob(job: any) {
+    return this.http.post(`${this.baseUel}`, job, { withCredentials: true });
+  }
 
-  // Create
-  // createJob(job: JobListing): Observable<JobListing> {
-  //   return this.http.post<JobListing>(this.baseUrl, job);
-  // }
+  getAllJobs() {
+    return this.http.get(`${this.baseUel}`, { withCredentials: true });
+  }
 
-  // // Get all
-  // getAllJobs(): Observable<JobListing[]> {
-  //   return this.http.get<JobListing[]>(this.baseUrl);
-  // }
+  updateJob(jobId: number, job: any) {
+    return this.http.put(`${this.baseUel}/${jobId}`, job, { withCredentials: true });
+  }
 
-  // // Get by ID
-  // getJobById(id: number): Observable<JobListing> {
-  //   return this.http.get<JobListing>(`${this.baseUrl}/${id}`);
-  // }
+  deleteJob(jobId: number) {
+    return this.http.delete(`${this.baseUel}/${jobId}`, { withCredentials: true });
+  }
 
-  // // Update
-  // updateJob(id: number, job: JobListing): Observable<JobListing> {
-  //   return this.http.put<JobListing>(`${this.baseUrl}/${id}`, job);
-  // }
-
-  // // Delete
-  // deleteJob(id: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.baseUrl}/${id}`);
-  // }
+  getAllCategory() {
+    return this.http.get('http://localhost:8080/api/categories', { withCredentials: true });
+  }
 }
