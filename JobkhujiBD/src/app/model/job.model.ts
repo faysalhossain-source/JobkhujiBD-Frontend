@@ -1,26 +1,38 @@
-// বেসিক ইন্টারফেস (আপনার আগের কম্পোনেন্টের জন্য)
-export interface Job {
-  id: number | string;
-  name: string;
+export interface JobListing {
+  id?: number;
+  jobTitle: string;
+  category: string;
+  experience: string;
+  pay_scale: string;
+  location: string;
   description: string;
-  image: string;
+  createDate: string;
 }
 
-// জব লিস্টিংয়ের এক্সটেন্ডেড ইন্টারফেস
-export interface RecentJobListing extends Job {
-  // নতুন প্রোপার্টিগুলো
-  title: string;       // name-এর বিকল্প নাম
-  logo: string;        // image-এর বিকল্প নাম
-  company: string;
-  experienceLevel: 'Beginner' | 'Mid Level' | 'Top Level';
-  deadline: string;
-  salary?: string;     // অপশনাল ফিল্ড
-  location?: string;   // অপশনাল ফিল্ড
-}
 
-interface LocalJob {
-  id: number;
-  name: string;
-  description?: string;
-  image?: string;
-}
+// // বেসিক ইন্টারফেস (আপনার আগের কম্পোনেন্টের জন্য)
+// export interface Job {
+//   id: number | string;
+//   name: string;
+//   description: string;
+//   image: string;
+// }
+
+// // 
+// export interface RecentJobListing extends Job {
+//   // new propertise
+//   title: string;       // name
+//   logo: string;        // image
+//   company: string;
+//   experienceLevel: 'Beginner' | 'Mid Level' | 'Top Level';
+//   deadline: string;
+//   salary?: string;     
+//   location?: string;  
+// }
+
+// interface LocalJob {
+//   id: number;
+//   name: string;
+//   description?: string;
+//   image?: string;
+// }

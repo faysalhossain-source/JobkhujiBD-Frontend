@@ -45,7 +45,11 @@ export const routes: Routes = [
       {
         path: 'admin-jobs',
         component: AdminJobsComponent
-      }
+      },
+       {
+         path: 'create-new-job',
+          component: CreateNewJobComponent 
+        },
     ]
   },
 
@@ -57,10 +61,7 @@ export const routes: Routes = [
          path: '',
           component: HomeComponent
          },
-      {
-         path: 'create-new-job',
-          component: CreateNewJobComponent 
-        },
+     
       { path: 'job-details', component: JobDetailsComponent },
       { path: 'job-listing', component: JobListingComponent },
       { path: 'jobs', component: JobsComponent },

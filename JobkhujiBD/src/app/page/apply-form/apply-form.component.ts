@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Job } from '../../model/job.model';
 @Component({
   selector: 'app-apply-form',
   templateUrl: './apply-form.component.html'

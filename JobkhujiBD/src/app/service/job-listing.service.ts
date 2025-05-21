@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class JobListingService {
-  private baseUel = 'http://localhost:8080/api/job-listings';
+  private baseUel = 'http://localhost:8081/api/job-listings';
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +26,6 @@ export class JobListingService {
   }
 
   getAllCategory() {
-    return this.http.get('http://localhost:8080/api/categories', { withCredentials: true });
+    return this.http.get('http://localhost:8081/api/categories', { withCredentials: true });
   }
 }
