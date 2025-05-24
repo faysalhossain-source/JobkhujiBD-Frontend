@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreateJobService {
-  private createJob = 'http://:localhost:8081/api/auth/job-listings';
+  private createJob = 'http://localhost:8081/api/auth/job-listings';
   private getAlljob = 'http://localhost:8081/api/auth/job-listings';
+
+  private apiUrl = 'http://localhost:8081/api/auth/job-listings';
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +20,13 @@ export class CreateJobService {
 
   getAllJobs(): Observable<JobListing[]> {
     return this.http.get<JobListing[]>(this.getAlljob);
+  }
+
+  deleteJob(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  updateJob(id: number, job: JobListing): Observable<JobListing> {
+    return this.http.put<JobListing>(`${this.apiUrl}/${id}`, job);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { JobService } from '../../service/job.service';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { JobListingService } from '../../service/job-listing.service';
+
 
 @Component({
   standalone: true,

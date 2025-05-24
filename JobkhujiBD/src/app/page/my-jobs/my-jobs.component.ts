@@ -1,25 +1,39 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-my-jobs',
+  selector: 'app-my-job',
   templateUrl: './my-jobs.component.html',
   styleUrls: ['./my-jobs.component.css'],
-  standalone: true,
-  imports: [FormsModule, CommonModule], // Import FormsModule for template-driven forms
+  imports: [NgFor,NgIf,CommonModule],
 })
 export class MyJobsComponent {
-  categoryObj = {
-    CategoryName: '',
-    ImageUrl: '',
-    IsActive: false,
-  };
+  appliedJobs = [
+    {
+      title: 'Frontend Developer',
+      company: 'TechSoft Ltd.',
+      location: 'Dhaka, Bangladesh',
+      appliedDate: new Date('2024-05-15'),
+      status: 'Applied'
+    },
+    {
+      title: 'Backend Engineer',
+      company: 'InnovaTech',
+      location: 'Remote',
+      appliedDate: new Date('2024-05-18'),
+      status: 'Under Review'
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'NextGen IT',
+      location: 'Chattogram',
+      appliedDate: new Date('2024-05-20'),
+      status: 'Shortlisted'
+    }
+  ];
 
-  onSave() {
-    console.log('Saving Category:', this.categoryObj);
-    // Here you can add the logic to save the category object
-    // For example, you can send it to a service or API endpoint
+  getStatusClass(status: string): string {
+    const s = status.toLowerCase().replace(/\s/g, '-');
+    return `status-${s}`;
   }
 }
