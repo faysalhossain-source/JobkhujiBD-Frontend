@@ -193,10 +193,13 @@ throw new Error('Method not implemented.');
 
  apply(jobId: string) {
   const isLoggedIn = !!localStorage.getItem('token');
+
   if (isLoggedIn) {
-    this.router.navigate(['/apply-form']);
+    this.router.navigate(['/apply-form'], { queryParams: { jobId } });
   } else {
-    this.router.navigate(['/login'], { queryParams: { returnUrl: '/apply-form' } });
+    this.router.navigate(['/apply-form'], { 
+      queryParams: { jobId, returnUrl: '/' } 
+    });
   }
 }
 

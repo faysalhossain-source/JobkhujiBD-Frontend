@@ -6,7 +6,7 @@ import { CommonModule, NgIf } from '@angular/common';
   selector: 'app-remotejob-details',
   templateUrl: './remotejob-details.component.html',
   standalone: true,
-  imports: [NgIf,CommonModule],
+  imports: [CommonModule],
 })
 export class RemoteJobDetailsComponent {
   // // job: Job | null = null;

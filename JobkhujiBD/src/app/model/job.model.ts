@@ -8,6 +8,15 @@ export interface JobListing {
   description: string;
   createDate: string;
 }
+export interface RegisterRequest {
+  email: string;
+  password: string;
+  role: string;
+  fullname: string;
+  companyName?: string;
+  mobile?: string;
+}
+
 
 
 // // বেসিক ইন্টারফেস (আপনার আগের কম্পোনেন্টের জন্য)
