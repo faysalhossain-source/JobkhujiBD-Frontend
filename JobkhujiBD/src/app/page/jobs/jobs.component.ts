@@ -27,9 +27,7 @@ export class JobsComponent implements OnInit{
   apply(jobId: number) {
     this.router.navigate(['/apply/:id'], { queryParams: { companyId: jobId } });
   }
-  // apply(jobId: number) {
-  //   this.router.navigate(['/apply-form'], { queryParams: { companyId: jobId } });
-  // }
+ 
 
   getAll() {
     this.jobService.getAllJobs().subscribe({
