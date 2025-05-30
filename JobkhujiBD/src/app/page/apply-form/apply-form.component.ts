@@ -24,14 +24,21 @@ export class ApplyFormComponent {
   }
 
   submit() {
-    this.createApply.submitApplication(this.application).subscribe({
+    // Convert Application object to FormData
+    const formData = new FormData();
+    formData.append('companyId', this.application.companyId);
+    formData.append('fullName', this.application.fullName);
+    formData.append('email', this.application.email);
+    formData.append('resumePath', this.application.resumePath);
+
+    this.createApply.submitApplication(formData).subscribe({
       next: () => {
-        alert('Application submitted!');
-        this.router.navigate(['/']);
+      alert('Application submitted!');
+      this.router.navigate(['/']);
       },
       error: (err) => {
-        console.error('Submission failed', err);
-        alert('Something went wrong!');
+      console.error('Submission failed', err);
+      alert('Something went wrong!');
       }
     });
   }

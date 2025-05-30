@@ -99,11 +99,16 @@
 
     <!-- Job Listings Column -->
 <div class="col-lg-6">
-  <div *ngFor="let job of job" class="custom-card">
+  <div *ngFor="let job of job" class="job-listing">
     <h3 class="job-title">{{ job.jobTitle }}</h3>
-    <p class="job-meta">{{ job.category }} - {{ job.experience }}</p>
-    <p class="job-meta">{{ job.location }} | {{ job.pay_scale }}</p>
-    <p class="job-description">{{ job.description }}</p>
+    <div class="job-details">
+      <p><strong>Category:</strong> {{ job.category }}</p>
+      <p><strong>Experience:</strong> {{ job.experience }}</p>
+      <p><strong>Pay:</strong> {{ job.pay_scale }}</p>
+      <p><strong>Location:</strong> {{ job.location }}</p>
+      <p><strong>Description:</strong> {{ job.description }}</p>
+      <p><strong>Created:</strong> {{ job.createDate }}</p>
+    </div>
     <button (click)="apply(job.id!)" class="apply-btn">Apply</button>
   </div>
 </div>
@@ -180,46 +185,8 @@
       <!-- Company Info -->
       <div class="col-md-4 mb-3">
         <h5>Job Portal</h5>
-        <p>&copy; 2023 Job Portal. All rights reserved.</p>
-        <a href="/privacy-policy" class="d-block">Privacy Policy</a>
-        <a href="/terms-of-service" class="d-block">Terms of Service</a>
+        <p>&copy; 2025 Job Portal. All rights reserved.</p>
+       
       </div>
 
-      <!-- Quick Links -->
-      <div class="col-md-4 mb-3">
-        <h6>Quick Links</h6>
-        <ul class="list-unstyled">
-          <li><a href="/about-us" class="text-decoration-none text-dark">About Us</a></li>
-          <li><a href="/contact-us" class="text-decoration-none text-dark">Contact Us</a></li>
-          <li><a href="/help" class="text-decoration-none text-dark">Help</a></li>
-          <li><a href="/faq" class="text-decoration-none text-dark">FAQ</a></li>
-          <li><a href="/blog" class="text-decoration-none text-dark">Blog</a></li>
-        </ul>
-      </div>
-
-      <!-- Other Links -->
-      <div class="col-md-4 mb-3">
-        <h6>More</h6>
-        <ul class="list-unstyled">
-          <li><a href="/careers" class="text-decoration-none text-dark">Careers</a></li>
-          <li><a href="/advertise" class="text-decoration-none text-dark">Advertise</a></li>
-          <li><a href="/sitemap" class="text-decoration-none text-dark">Sitemap</a></li>
-          <li><a href="/feedback" class="text-decoration-none text-dark">Feedback</a></li>
-          <li><a href="/report" class="text-decoration-none text-dark">Report</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row text-center">
-      <div class="col">
-        <a href="/terms" class="mx-2 text-decoration-none text-muted">Terms</a>
-        <a href="/cookies" class="mx-2 text-decoration-none text-muted">Cookies</a>
-        <a href="/accessibility" class="mx-2 text-decoration-none text-muted">Accessibility</a>
-        <a href="/community-guidelines" class="mx-2 text-decoration-none text-muted">Community Guidelines</a>
-        <a href="/user-agreement" class="mx-2 text-decoration-none text-muted">User Agreement</a>
-      </div>
-    </div>
-  </div>
-</footer>
+    

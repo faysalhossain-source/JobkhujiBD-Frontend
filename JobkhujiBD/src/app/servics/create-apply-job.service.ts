@@ -17,7 +17,7 @@ export class CreateApplyJobService {
 
   constructor(private http: HttpClient) {}
 
-  submitApplication(application: Application) {
-    return this.http.post(this.apiUrl, application);
+  submitApplication(formData: FormData) {
+    return this.http.post(this.apiUrl, formData);
   }
 }

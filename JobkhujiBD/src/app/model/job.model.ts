@@ -1,4 +1,6 @@
 export interface JobListing {
+
+
   id?: number;
   jobTitle: string;
   category: string;
@@ -15,6 +17,12 @@ export interface RegisterRequest {
   fullname: string;
   companyName?: string;
   mobile?: string;
+}
+export interface Application {
+  companyId: string;
+  fullName: string;
+  email: string;
+  resumePath: string;
 }
 
 

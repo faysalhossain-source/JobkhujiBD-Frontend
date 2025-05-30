@@ -9,7 +9,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-jobs',
   standalone: true,
-  imports: [CommonModule, NgIf, FormsModule,RouterModule],
+  imports: [CommonModule, NgFor, FormsModule,RouterModule],
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.css'],
 })
