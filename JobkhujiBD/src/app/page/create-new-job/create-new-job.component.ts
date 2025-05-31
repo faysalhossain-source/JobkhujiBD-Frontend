@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-create-new-job',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, NgIf],
   templateUrl: './create-new-job.component.html',
   styleUrls: ['./create-new-job.component.css'],
 })

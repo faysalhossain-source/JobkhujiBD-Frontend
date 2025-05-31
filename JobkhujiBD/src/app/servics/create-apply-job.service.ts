@@ -5,15 +5,14 @@ export interface Application {
   companyId: string;
   fullName: string;
   email: string;
-  resumePath: string;
+  resumePath: File | null;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CreateApplyJobService {
-
- private apiUrl = 'http://localhost:8081/api/applications';
+  private apiUrl = 'http://localhost:8081/api/applications';
 
   constructor(private http: HttpClient) {}
 

@@ -27,8 +27,7 @@
             type="text" 
             class="form-control form-control-lg" 
             id="fullName"
-            placeholder="John Doe" [(ngModel)]="application.fullName" [ngModelOptions]="{standalone: true}"
-            required
+            placeholder="John Doe" [(ngModel)]="application.fullName"  name="fullName" required
           >
           <div class="form-text">Please enter your full legal name</div>
         </div>
@@ -39,7 +38,7 @@
             type="email" 
             class="form-control form-control-lg" 
             id="email"
-            placeholder="example@email.com" [(ngModel)]="application.email"
+            placeholder="example@email.com" [(ngModel)]="application.email" name="email"
             required
           >
           <div class="form-text">We'll never share your email with others</div>
@@ -54,8 +53,8 @@
               class="form-control form-control-lg" 
               id="resume"
               name="resumePath"
-              accept=".pdf,.doc,.docx" [(ngModel)]="application.resumePath"
-              required
+              accept=".pdf,.doc,.docx" 
+              (change)="onFileSelected($event)" required
             >
             <span class="input-group-text bg-primary text-white">
               <i class="bi bi-upload"></i>
