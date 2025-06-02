@@ -23,6 +23,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { RecenJobcircularComponent } from './alljobs/recentjob-circular-details/recentjob-circular-details.component';
 import { PaidMembershipComponent } from './page/membership/membership.component';
 import { LoginComponent } from './page/login/login.component';
+import { UserProfileComponent } from './page/user-profile/user-profile.component';
 
 
 
@@ -158,6 +159,10 @@ export const routes: Routes = [
 {
   path: 'membership',
   component: PaidMembershipComponent,
+},
+{
+  path:'user_profile',
+  component: UserProfileComponent,
 }
 ]
   },

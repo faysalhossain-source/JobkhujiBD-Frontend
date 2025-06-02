@@ -1,0 +1,85 @@
+<div class="sidebar p-4 bg-white shadow-md rounded-lg">
+  <ul class="space-y-2">
+    <li>
+   <img src="jobkhuji2.png" alt="logo">
+      </li>
+    <!-- Home -->
+    <li>
+      <a routerLink="/dashboard" class="flex items-center gap-2 text-gray-800 hover:text-blue-600">
+         <i class="bi bi-house-door">Home</i>
+      </a>
+    </li>
+
+    <!-- Manage Profile -->
+    <li>
+      <button (click)="toggleMenu('profile')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
+        <span><i class="bi bi-person-circle"></i> Manage Profile</span>
+        <i [class]="menu.profile ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      <ul *ngIf="menu.profile" class="pl-4 mt-1 space-y-1 text-sm">
+        <li><a routerLink="/profile/view">👁 View Profile</a></li>
+        <li><a routerLink="/profile/dashboard">📊 Dashboard</a></li>
+        <li><a routerLink="/profile/edit">✏️ Edit Profile</a></li>
+        <li><a routerLink="/profile/video-cv">🎥 Video CV</a></li>
+        <li><a routerLink="/profile/custom-cv">📄 Customized CV</a></li>
+        <li><a routerLink="/profile/email-cv">📧 Email CV</a></li>
+      </ul>
+    </li>
+
+    <!-- Invitations -->
+    <li>
+      <button (click)="toggleMenu('invitation')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
+        <span><i class="bi bi-calendar3-event"></i> Invitations</span>
+        <i [class]="menu.invitation ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      <ul *ngIf="menu.invitation" class="pl-4 mt-1 space-y-1 text-sm">
+        <li><a routerLink="/invites/live">🔴 Live Interview</a></li>
+        <li><a routerLink="/invites/video">📹 Recorded Interview</a></li>
+        <li><a routerLink="/invites/general">📞 General Interview</a></li>
+        <li><a routerLink="/invites/test">📝 Online Test</a></li>
+        <li><a routerLink="/invites/personality">🎤 Personality Test</a></li>
+      </ul>
+    </li>
+
+    <!-- My Activities -->
+    <li>
+      <button (click)="toggleMenu('activities')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
+        <span><i class="bi bi-activity"></i> My Activities</span>
+        <i [class]="menu.activities ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      <ul *ngIf="menu.activities" class="pl-4 mt-1 space-y-1 text-sm">
+        <li><a routerLink="/activity/applied">🧾 Applied Jobs</a></li>
+        <li><a routerLink="/activity/emailed">📨 Emailed Resume</a></li>
+        <li><a routerLink="/activity/shortlisted">⭐ Shortlisted Jobs</a></li>
+        <li><a routerLink="/activity/following">🏢 Following Employers</a></li>
+        <li><a routerLink="/activity/transactions">💳 Transaction Overview</a></li>
+      </ul>
+    </li>
+
+    <!-- Points & Rewards -->
+    <li>
+      <button (click)="toggleMenu('points')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
+        <span><i class="bi bi-pen"></i> Points & Rewards</span>
+        <i [class]="menu.points ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      <ul *ngIf="menu.points" class="pl-4 mt-1 space-y-1 text-sm">
+        <li><a routerLink="/points">🏆 My Points</a></li>
+        <li><a href="https://mybdjobs.bdjobs.com/mybdjobs/user-guide-point-system.asp" target="_blank">❓ How to Earn Points</a></li>
+      </ul>
+    </li>
+    
+    <!-- Employer Activities -->
+    <li>
+      <button (click)="toggleMenu('employer')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
+        <span><i class="bi bi-person-standing-dress"></i> Employer Activities</span>
+        <i [class]="menu.employer ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+      </button>
+      <ul *ngIf="menu.employer" class="pl-4 mt-1 space-y-1 text-sm">
+        <li><a routerLink="/employer/viewed-cv">👀 Viewed CV</a></li>
+        <li><a routerLink="/employer/messages">💬 Employer Message</a></li>
+        <li><a routerLink="/employer/interested">💡 Employer Interested</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div> 
