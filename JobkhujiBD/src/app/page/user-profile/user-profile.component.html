@@ -68,7 +68,7 @@
       </ul>
     </li>
     
-    <!-- Employer Activities -->
+    <!-- Employer Activities 
     <li>
       <button (click)="toggleMenu('employer')" class="flex items-center w-full justify-between text-gray-800 hover:text-blue-600">
         <span><i class="bi bi-person-standing-dress"></i> Employer Activities</span>
@@ -82,4 +82,202 @@
     </li>
 
   </ul>
-</div> 
+</div> -->
+ <!-- CV Visibility Section,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+<div class="main-content p-4 bg-gray-100 min-h-screen">
+  <div class="header mb-4">
+    
+
+    <div class="job-search-content">
+      <div class="restabwrap">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation" [class.active]="activeTab === 'bdjresume'">
+            <a class="nav-link" (click)="changeTab('bdjresume')" role="tab" aria-selected="false" tabindex="-1">
+              <span class="icon-file ico"></span>
+              My CV
+            </a>
+          </li>
+          <li class="nav-item" role="presentation" [class.active]="activeTab === 'vdeoresume'">
+            <a class="nav-link" (click)="changeTab('vdeoresume')" role="tab" aria-selected="false" tabindex="-1">
+              <span class="icon-vdeo-resume ico"></span>
+              Video CV
+            </a>
+          </li>
+          <li class="nav-item" role="presentation" [class.active]="activeTab === 'personaliz'">
+            <a class="nav-link" (click)="changeTab('personaliz')" role="tab" aria-selected="false" tabindex="-1">
+              <span class="icon-ownformat-resume ico"></span>
+              Custom CV 
+            </a>
+          </li>
+        </ul>
+        
+        <div class="tab-content">
+        
+          <div class="tabPanel" role="tabpanel" aria-hidden="false" *ngIf="activeTab === 'bdjresume'">
+            <div class="bdjreswrap">
+              <div class="pvdncsst-wrap">
+                <div class="pcom" tabindex="0"><span id="tnosvr">{{bdjobsCv.completion}}</span>% Completed</div>
+              </div>
+              <div class="progress active" tabindex="0">
+                <div class="progress-bar bdjres" role="progressbar" 
+                     [style.width.%]="bdjobsCv.completion" 
+                     [attr.aria-valuenow]="bdjobsCv.completion" 
+                     aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="vrvelupwrap">
+                <div class="vedact">
+                  <a class="veactbtn" href="#">
+                    <span class="icon-eye ico" aria-hidden="true"></span>View
+                  </a>
+                  <a class="veactbtned" href="#">
+                    <span class="icon-edit ico" aria-hidden="true"></span>Edit
+                  </a>
+                </div>
+                <div class="lupdev">Last updated: {{cvVisibility.lastUpdated}}</div>
+              </div>
+              <div class="c-column">
+                <ul>
+                  <li *ngFor="let section of bdjobsCv.sections">
+                    <div class="scomp-wrap" [class.comp]="section.completed" [class.incomp]="!section.completed">
+                      <span class="icon-check-sign ico" *ngIf="section.completed" aria-hidden="true"></span>
+                      <span class="icon-times-o ico" *ngIf="!section.completed" aria-hidden="true"></span>
+                      <a [href]="section.link">{{section.name}}</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="tabPanel" role="tabpanel" aria-hidden="true" *ngIf="activeTab === 'vdeoresume'">
+            <div class="vrwrap">
+              <div class="icowrap">
+                <span class="icon-vdeo-resume ico" aria-hidden="true"></span>
+              </div>
+              <div class="destxt">
+                You have no Video Resume. Please create one.
+              </div>
+              <div class="bactwrap">
+                <a class="bactbtn" href="#">
+                  <span class="icon-add-plus ico" aria-hidden="true"></span> Create Video Resume
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="tabPanel" role="tabpanel" aria-hidden="true" *ngIf="activeTab === 'personaliz'">
+            <div class="prwrap">
+              <div class="icowrap">
+                <span class="icon-ownformat-resume ico" aria-hidden="true"></span>
+              </div>
+              <div class="destxt">
+                You have no Custom Resume. Please upload it.
+              </div>
+              <div class="bactwrap">
+                <a class="bactbtn" href="#">
+                  <span class="icon-cloud-upload ico" aria-hidden="true"></span>
+                  Upload Custom Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="dashboard-content">
+    <div class="dashboard-wrap">
+    
+      <div class="sovrvtes">
+        <div class="lcont">
+          <span>Status of CV visibility to Employer(s):</span> 
+          <div class="cstus">
+            <div class="csv">
+              <span class="icon-lock-open ico"></span>{{cvVisibility.status}}
+            </div>
+            <a class="csvact" href="#">Change</a>
+          </div>
+        </div>
+        <div class="rcont">
+          <a href="javascript:void(1000)" aria-label="Tooltip" 
+             data-toggle="tooltip" data-placement="bottom" 
+             title="All Employer(s) can see your resume.">
+            <span class="icon-info ico" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+      
+    
+      <div class="stvwrap">
+        <div class="row">
+          <div class="col-md-6">                                            
+            <div class="rvisrep-wrap">
+              <div class="apcdes">
+                <div class="titletxt">Total No. of Viewed CV</div>
+                <div class="destxt">Here you will know the total no. of CV viewed by Employer(s).</div>
+              </div>
+              <div class="tnorv">
+                <div class="pie-chart">        
+                  <div class="pcv-pie">
+                    <div class="checkmark wt" tabindex="0">
+                      <span class="sr-only">Total No of Viewed CV</span>
+                      <span class="tnorvew">{{cvStats.viewed.total}}</span>
+                    </div>
+                    <div class="zvd"><span></span></div>
+                  </div>        
+                </div>
+                <ul class="pcv-legend">
+                  <li>
+                    <em tabindex="0"><i class="icon-file" aria-hidden="true"></i> My CV </em>
+                    <a href="javascript: void(0)"><span style="color: rgb(237, 237, 237);">{{cvStats.viewed.bdjobs}}</span></a>
+                  </li>
+                  <li>
+                    <em tabindex="0"><i class="icon-ownformat-resume" aria-hidden="true"></i> Custom CV</em>
+                    <a href="javascript: void(0)"><span style="color: rgb(237, 237, 237);">{{cvStats.viewed.personalized}}</span></a>
+                  </li>
+                  <li>
+                    <em tabindex="0"><i class="icon-vdeo-resume" aria-hidden="true"></i> Video CV </em>
+                    <a href="javascript: void(0)"><span style="color: rgb(237, 237, 237);">{{cvStats.viewed.video}}</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">                                            
+            <div class="rvisrep-wrap">
+              <div class="apcdes">
+                <div class="titletxt">Total No. of Emailed CV</div>
+                <div class="destxt">Here you will know the total no. of CV that you have emailed to Employer(s).</div>
+              </div>
+              <div class="tnoer">
+                <div class="pie-chart">        
+                  <div class="pcv-pie">
+                    <div class="checkmark wt" tabindex="0">
+                      <span class="sr-only">Total No of Emailed CV</span>
+                      <span class="tnore">{{cvStats.emailed.total}}</span>
+                    </div>
+                    <div class="zvd"><span></span></div>
+                  </div>        
+                </div>
+                <ul class="pcv-legend">
+                  <li>
+                    <em tabindex="0"><i class="icon-file" aria-hidden="true"></i> My CV </em>
+                    <a href="javascript: void(0)"><span style="color: rgb(237, 237, 237);">{{cvStats.emailed.bdjobs}}</span></a>
+                  </li>
+                  <li>
+                    <em tabindex="0"><i class="icon-ownformat-resume" aria-hidden="true"></i> Custom CV</em>
+                    <a href="javascript: void(0)"><span style="color: rgb(237, 237, 237);">{{cvStats.emailed.personalized}}</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,165 @@
+<div class="profile-view-container">
+  <div class="header">
+    <h2>My CV Profile</h2>
+    <button class="edit-btn" (click)="toggleEditMode()">
+      {{ isEditMode ? 'Cancel' : 'Edit Profile' }}
+    </button>
+  </div>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="cv-form">
+    <!-- Personal Information Section -->
+    <fieldset class="form-section">
+      <legend>Personal Information</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" formControlName="fullName" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Father's Name</label>
+          <input type="text" formControlName="fathersName" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Mother's Name</label>
+          <input type="text" formControlName="mothersName" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input type="date" formControlName="dateOfBirth" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Gender</label>
+          <select formControlName="gender" [disabled]="!isEditMode">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Religion</label>
+          <input type="text" formControlName="religion" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Marital Status</label>
+          <select formControlName="maritalStatus" [disabled]="!isEditMode">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Nationality</label>
+          <input type="text" formControlName="nationality" [readonly]="!isEditMode">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Contact Information Section -->
+    <fieldset class="form-section">
+      <legend>Contact Information</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="tel" formControlName="mobile" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Alternate Mobile</label>
+          <input type="tel" formControlName="alternateMobile" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group address-group">
+          <label>Present Address</label>
+          <textarea formControlName="presentAddress" [readonly]="!isEditMode" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group address-group">
+          <label>Permanent Address</label>
+          <textarea formControlName="permanentAddress" [readonly]="!isEditMode" rows="3"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Career and Application Section -->
+    <fieldset class="form-section">
+      <legend>Career and Application Information</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Career Objective</label>
+          <textarea formControlName="careerObjective" [readonly]="!isEditMode" rows="4"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Present Salary</label>
+          <input type="number" formControlName="presentSalary" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Expected Salary</label>
+          <input type="number" formControlName="expectedSalary" [readonly]="!isEditMode">
+        </div>
+        
+        <div class="form-group">
+          <label>Looking For</label>
+          <select formControlName="jobLevel" [disabled]="!isEditMode">
+            <option value="entry">Entry Level</option>
+            <option value="mid">Mid Level</option>
+            <option value="top">Top Level</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Available For</label>
+          <select formControlName="jobNature" [disabled]="!isEditMode">
+            <option value="fulltime">Full Time</option>
+            <option value="parttime">Part Time</option>
+            <option value="contract">Contract</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Photo Section -->
+    <fieldset class="form-section">
+      <legend>Photograph</legend>
+      <div class="photo-upload">
+        <div class="photo-preview">
+          <img [src]="profilePhoto || 'assets/default-profile.png'" alt="Profile Photo">
+          <div *ngIf="isEditMode" class="upload-controls">
+            <input type="file" id="photoUpload" (change)="onPhotoChange($event)" accept="image/*">
+            <label for="photoUpload">Change Photo</label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Action Buttons -->
+    <div class="form-actions" *ngIf="isEditMode">
+      <button type="submit" class="save-btn">Save Changes</button>
+      <button type="button" class="cancel-btn" (click)="toggleEditMode()">Cancel</button>
+    </div>
+  </form>
+
+  <!-- CV Preview Section -->
+  <div class="cv-preview" *ngIf="!isEditMode">
+    <h3>CV Preview</h3>
+    <button class="download-btn" (click)="downloadCV()">
+      <i class="fas fa-download"></i> Download CV
+    </button>
+    <button class="print-btn" (click)="printCV()">
+      <i class="fas fa-print"></i> Print CV
+    </button>
+  </div>
+</div><p>user-cv works!</p>
