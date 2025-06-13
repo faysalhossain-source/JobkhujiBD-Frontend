@@ -16,6 +16,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class JobsComponent implements OnInit{
 
    job: JobListing[] = [];
+jobList: any;
 
   constructor(private jobService: CreateJobService, private router: Router) {}
 
@@ -24,7 +25,7 @@ export class JobsComponent implements OnInit{
   }
 
 
-  apply(jobId: number) {
+  apply(jobId: String) {
     this.router.navigate(['/apply/:id'], { queryParams: { companyId: jobId } });
   }
  

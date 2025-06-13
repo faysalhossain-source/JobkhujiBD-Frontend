@@ -2,6 +2,15 @@
   <h2>Create New Job</h2>
   <form (ngSubmit)="createJobs()">
     <div class="input-group">
+      <label for="companyName" class="for">companyName</label>
+      <input 
+        id="companyName"
+        type="text"
+        [(ngModel)]="jobs.companyName"
+        name="companyName"
+        required>
+    </div>
+    <div class="input-group">
       <label for="jobTitle">Job Title</label>
       <input
         id="jobTitle"
@@ -82,26 +91,27 @@
 </div>
 
 <!--job list-->
-<
+
 <div class="job-cards">
-  <div class="job-card" *ngFor="let jobsss of job">
-    <h3>{{ jobsss.jobTitle }}</h3>
-    <p><strong>Category:</strong> {{ jobsss.category }}</p>
-    <p><strong>Experience:</strong> {{ jobsss.experience }}</p>
-    <p><strong>Pay:</strong> {{ jobsss.pay_scale }}</p>
-    <p><strong>Location:</strong> {{ jobsss.location }}</p>
-    <p><strong>Description:</strong> {{ jobsss.description }}</p>
-    <p><strong>Created:</strong> {{ jobsss.createDate }}</p>
+  <div class="job-card" *ngFor="let jobs of job">
+    <p><strong>Company Name:</strong> {{ jobs.companyName }}</p>
+    <p><strong>jobTitle:</strong>{{ jobs.jobTitle }}</p>
+    <p><strong>Category:</strong> {{ jobs.category }}</p>
+    <p><strong>Experience:</strong> {{ jobs.experience }}</p>
+    <p><strong>Pay:</strong> {{ jobs.pay_scale }}</p>
+    <p><strong>Location:</strong> {{ jobs.location }}</p>
+    <p><strong>Description:</strong> {{ jobs.description }}</p>
+    <p><strong>Created:</strong> {{ jobs.createDate }}</p>
 
     <button
       type="button"
-      (click)="editJob(jobsss)"
+      (click)="editJob(jobs)"
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
     >
       ✏️ Edit
     </button>
-    <button class="delete" (click)="deleteJob(jobsss.id!)">🗑️ Delete</button>
+    <button class="delete" (click)="deleteJob(jobs.id!)">🗑️ Delete</button>
   </div>
 </div>
 
@@ -181,13 +191,15 @@
             />
 
             <div class="flex gap-2 mt-2">
-              <button style="background-color: green; border: none;"
+              <button
+                style="background-color: green; border: none"
                 class="bg-blue-600 text-white px-4 py-1 rounded"
                 type="submit"
               >
                 Update
               </button>
-              <button style="background-color: red; border: none; margin-left: 7px;"
+              <button
+                style="background-color: red; border: none; margin-left: 7px"
                 class="bg-gray-500 text-white px-4 py-1 rounded"
                 type="button"
                 (click)="selectedJob = null"
@@ -202,76 +214,3 @@
   </div>
 </div>
 
-<!-- Toast Alert
-<div class="toast-container position-fixed bottom-0 end-0 p-3" *ngIf="showToast">
-  <div class="toast align-items-center text-white bg-success border-0 show">
-    <div class="d-flex">
-      <div class="toast-body">
-        ✅ Job posted successfully!
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="closeToast()"></button>
-    </div>
-  </div>
-</div>
-
-
-<section class="create-job-section container py-5">
-  <div class="card shadow-lg p-4">
-    <h3 class="mb-4 text-center text-primary fw-bold">Create a New Job Post</h3>
-
-    <div class="row gy-3">
- 
-      <div class="col-12 col-md-6">
-        <label class="form-label">Job Title</label>
-        <input type="text" class="form-control" [(ngModel)]="jobObj.JobName" name="JobName" placeholder="e.g. Software Engineer" />
-      </div>
-
-     
-      <div class="col-12 col-md-6">
-        <label class="form-label">Select Category</label>
-        <select class="form-select" [(ngModel)]="jobObj.CategoryId" name="CategoryId">
-          <option [ngValue]="null" disabled >Select a Category</option>
-          <option *ngFor="let cat of categoryList" [ngValue]="cat.jobCategoryId">
-            {{ cat.categoryName }}
-          </option>
-        </select>
-      </div>
-
-     
-      <div class="col-12 col-md-6">
-        <label class="form-label">Experience</label>
-        <select class="form-select" [(ngModel)]="jobObj.Experience" name="Experience">
-          <option value="" disabled selected>Select Experience</option>
-          <option value="Fresher">Fresher</option>
-          <option value="Experienced">Experienced</option>
-           <option value="Both">Both</option>
-        </select>
-      </div>
-
-  
-      <div class="col-12 col-md-6">
-        <label class="form-label">Pay Scale (Package)</label>
-        <input type="text" class="form-control" [(ngModel)]="jobObj.Package" name="Package" placeholder="e.g. 30k-50k" />
-      </div>
-
-    
-      <div class="col-12 col-md-6">
-        <label class="form-label">Location</label>
-        <input type="text" class="form-control" [(ngModel)]="jobObj.Location" name="Location" placeholder="e.g. Dhaka" />
-      </div>
-
-   
-      <div class="col-12">
-        <label class="form-label">Job Description</label>
-        <textarea class="form-control" [(ngModel)]="jobObj.JobDescription" name="JobDescription" rows="4" placeholder="Write a description of the job..."></textarea>
-      </div>
-
-
-      <div class="col-12 text-center">
-        <button (click)="CreateJob()" class="btn btn-success btn-lg px-5" type="button">
-          Post Job
-        </button>
-      </div>
-    </div>
-  </div>
-</section> -->

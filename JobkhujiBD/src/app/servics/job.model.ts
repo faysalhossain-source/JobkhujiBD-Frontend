@@ -1,14 +1,14 @@
 export interface JobListing {
+category: any;
   id?: number;
-  companyId?: string;
   companyName: string;
   jobTitle: string;
-  category: string;
+  jobId?: string;
   experience: string;
   pay_scale: string;
   location: string;
   description: string;
-  createDate: string;
+  createDate: Date;
 }
 export interface RegisterRequest {
   email: string;
@@ -23,6 +23,7 @@ export interface Application {
   fullName: string;
   email: string;
   resumePath: string;
+  jobId?: String;
 }
 export interface MyJob {
   id: number;
@@ -35,7 +36,7 @@ export interface MyJob {
 
 
 
-// Uncomment the following code if you want to use the Job interface
+// // বেসিক ইন্টারফেস ( আগের কম্পোনেন্টের জন্য)
 // export interface Job {
 //   id: number | string;
 //   name: string;
@@ -43,7 +44,7 @@ export interface MyJob {
 //   image: string;
 // }
 
-// //
+// // 
 // export interface RecentJobListing extends Job {
 //   // new propertise
 //   title: string;       // name
@@ -51,8 +52,8 @@ export interface MyJob {
 //   company: string;
 //   experienceLevel: 'Beginner' | 'Mid Level' | 'Top Level';
 //   deadline: string;
-//   salary?: string;
-//   location?: string;
+//   salary?: string;     
+//   location?: string;  
 // }
 
 // interface LocalJob {

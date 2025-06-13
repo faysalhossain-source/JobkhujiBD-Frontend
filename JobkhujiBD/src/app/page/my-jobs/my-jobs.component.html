@@ -16,10 +16,10 @@
     <tbody class="text-center" *ngIf="appliedJobs.length > 0; else noJobs">
       <tr *ngFor="let job of appliedJobs; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ job.title }}</td>
-        <td>{{ job.company }}</td>
+        <td>{{ job.jobTitle }}</td>
+        <td>{{ job.companyName }}</td>
         <td>{{ job.location }}</td>
-        <td>{{ job.appliedDate | date: 'dd-MM-yyyy' }}</td>
+        <td>{{ job.appliedAt | date: 'dd-MM-yyyy' }}</td>
         <td>
           <span class="badge" [ngClass]="getStatusClass(job.status)">
             {{ job.status }}

@@ -100,8 +100,10 @@
     <!-- Job Listings Column -->
 <div class="col-lg-6">
   <div *ngFor="let job of job" class="job-listing">
-    <h3 class="job-title">{{ job.jobTitle }}</h3>
+   <h2 class="company-name">{{ job.companyName }}</h2>
     <div class="job-details">
+      <p><strong>Job Title:</strong> {{ job.jobTitle }}</p>
+      <p><strong>Job ID:</strong> {{ job.id }}</p>
       <p><strong>Category:</strong> {{ job.category }}</p>
       <p><strong>Experience:</strong> {{ job.experience }}</p>
       <p><strong>Pay:</strong> {{ job.pay_scale }}</p>
@@ -109,20 +111,10 @@
       <p><strong>Description:</strong> {{ job.description }}</p>
       <p><strong>Created:</strong> {{ job.createDate }}</p>
     </div>
-    <button (click)="apply(job.id!)" class="apply-btn">Apply</button>
+    <button (click)="apply(job.id!.toString())" class="apply-btn">Apply</button>
   </div>
 </div>
 
-<!-- Job Listings -->
-<!-- <div *ngIf="!showApplyForm" class="col-6">
-  <div *ngFor="let jobItem of job" class="custom-card">
-    <h3>{{ jobItem.jobTitle }}</h3>
-    <p>{{ jobItem.category }} - {{ jobItem.experience }}</p>
-    <p>{{ jobItem.location }} | {{ jobItem.pay_scale }}</p>
-    <p>{{ jobItem.description }}</p>
-    <button (click)="apply(jobItem.id!)">Apply</button>
-  </div>
-</div> -->
 
 
     <!-- Right Column (Top Companies) -->

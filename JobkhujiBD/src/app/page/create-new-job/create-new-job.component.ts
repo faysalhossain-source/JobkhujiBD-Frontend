@@ -19,14 +19,17 @@ export class CreateNewJobComponent implements OnInit {
     selectedJob: JobListing | null = null;
 
    jobs: JobListing = {
-    jobTitle: '',
-    category: '',
-    experience: '',
-    pay_scale: '',
-    location: '',
-    description: '',
-    createDate: new Date().toISOString().split('T')[0], // Format: "YYYY-MM-DD"
-  };
+    companyName: '',
+     jobTitle: '',
+     category: '',
+     experience: '',
+     pay_scale: '',
+     location: '',
+     description: '',
+     createDate: new Date().toISOString().split('T')[0],
+     
+     
+   };
 
   constructor(private jobService: CreateJobService) {}
 

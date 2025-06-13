@@ -1,5 +1,7 @@
 export interface JobListing {
   id?: number;
+  companyId?: string;
+  companyName: string;
   jobTitle: string;
   category: string;
   experience: string;

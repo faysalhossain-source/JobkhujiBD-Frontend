@@ -24,6 +24,7 @@ import { RecenJobcircularComponent } from './alljobs/recentjob-circular-details/
 import { PaidMembershipComponent } from './page/membership/membership.component';
 import { LoginComponent } from './page/login/login.component';
 import { UserProfileComponent } from './page/user-profile/user-profile.component';
+import { MainLayoutEmployeerComponent } from './employeer/main-layout-employeer/main-layout-employeer.component';
 
 
 
@@ -53,6 +54,28 @@ export const routes: Routes = [
         },
     ]
   },
+  //Employer routes
+  {
+    path: 'employer',
+    component: MainLayoutEmployeerComponent,
+    children: [
+      { path: '',
+         redirectTo: 'employeer-dashboard',
+          pathMatch: 'full' 
+        },
+      { path: "employeer-dashboard",
+         component: DashboardComponent
+        
+        },
+      { path: 'create-new-job',
+         component: CreateNewJobComponent
+         },
+      { path: 'my-jobs',
+         component: MyJobsComponent 
+        }
+    ]
+  },
+
 
   {
     path: '',
